@@ -1,0 +1,82 @@
+기본자바공부심플 : https://wikidocs.net/book/31
+
+강사님깃 : https://github.com/bitacademy-duzon
+
+    메일 : kickscar@gmail.com
+
+참고 : goo.gl/BwabNW
+
+
+6교시하고 2교시는 과제(설계,코딩등등?)
+
+
+정리폴더 : d:/duzon
+		|------ 강의자료
+                |------ eclipse
+                |------ workspace
+		|------ libs         <-라이브러리 
+
+
+- 순서 -
+
+Advanced java programming
+Data Structure with Java
+RDBMS(MySQL , Oracle)
+Svlet/JSP
+HTML/CSS/JavaScript(jQuery, Vue.js, React, Angular.js)
+Spring FW
+Linux-CI
+NodeJS/MongoDB
+
+
+흠.. 일단 백엔드는 스프링이고 프론트는 뷰나 제이쿼리나 등등쓰겠지
+
+
+--우리가하는거 
+
+ java enterprise development 기업용어플리케이션
+
+-------------
+
+자바역사? 자바-다운받아실행한다
+
+
+  브라우저 
+-------------     =>핫자바 = 망함   
+  jvm(java.exe)
+
+그래서 스펙을만듬 java EE       - 어플리케이셔기반
+ 각각기술들(웹이나 DB등등 기술셋) 
+
+		웹은뭐 was, jsp , db는 jdbc등 이렇게 스펙을정의해서 발표해서 성공
+-------------
+ 
+ 자바 SE는뭐냐? JRE?  런타임 = 실행환경?
+
+    클라이언트 서버 프로그래밍 - 소켓등   
+
+---------------
+  자바로뭘개발하고싶으면 
+  
+    기본 즉 
+      java se - jre  기본적으로 사용자들이 설치해야함 
+                jdk(API) 개발자들이 필요함 
+
+              이것들이 필요하지  
+ 
+
+
+
+------------------------------
+ 
+ 1. 기본프로그래밍 - 변수,제어문
+
+ 2. 객채지향 개념
+
+ 3. 자바 객체지향 프로그래밍
+
+ 4. API - java.lang , java.util 등등 객체지향개념을 여기서 확인하면된다.
+
+ 5. 네트워크? 웹서버를짜보자,
+
+
