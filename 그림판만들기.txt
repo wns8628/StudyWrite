@@ -1,0 +1,26 @@
+
+ 실습2) 도형그리기 (구조익히기)
+ 
+ 그림판에서 객체? 그려지는 점이나 도형이 각각 객체다
+
+ 1단계 - 점찍기 , 포인트클래스
+            x , y
+ 2단계 -점지우기 , 오버로딩이랑 중복제거(쓰지말고 함수를 호출해라) 
+
+ 색깔을 넣고싶다?   
+ ex)  point객체 
+            x,y  / show() show(boolean) + color?? 
+  수정은안돼! 상속받아 만들어라 
+   	   ColorPoint extends Point 뭐이렇게해서 
+      
+ ** @Override 워너테이션 // 걍 마킹임 
+ 
+ *자식객체 만들때 앞에 참조는 부모로해주는게 좋음 
+   Point p = new ColorPoint 이렇게  
+   대신  객체안에는 다 있지만 참조는 부모것만한다 그래서
+   setcolor이런걸쓸려면  
+		Point p3 = new ColorPoint();
+		((ColorPoint)p3).setColor("red"); //이렇게해줘야 Point가 지꺼만참조하는걸 막을수있다?
+----------------------
+ 함수를 써야할때? 
+ 
