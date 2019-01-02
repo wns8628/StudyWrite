@@ -1,0 +1,47 @@
+예외 (Exception)
+
+ *에러가아님(에러:0으로나누게한다던지 이딴건 고쳐야지)
+
+ 예외처리시 기본 - 로그를남기게한다, 안내메세지를띄운다, 종료 
+ 
+ 예외처리안하면 코드를못짬
+
+ catch를 비워놓으면 오류를 발견하기힘들다. 무조건적어놔라
+
+ try 
+     코드
+ catch 
+      로그를남기게한다, 안내메세지를띄운다, 종료
+ finally 	
+     무조건실행, 보통 자원정리를한다.
+  
+-------------
+  예외  checked Exception  //컴파일자체가안됨
+	 강제하는거임 try catch 
+             FileInputStream("text.txt") //이거만든사람이 외부로 던진거
+			         // catch로 잡아줘야지
+         unchecked Exception //안해도 컴파일에러안뜸  
+		논리적에러임 즉 오류의성향이강해서 고쳐야함
+
+
+ 외부로 에러를던질수있다.      FileInputStream이것처럼                      
+ 즉 쓰는곳에서 강제할수있음 트라이캐치를 그래서 비즈니스코드만남기게가능
+ 
+ throws 사용
+
+---------
+  checked Exception 는 Exception상속해서 예외처리를 전부 외부로던진다.
+  RuntimeException사용?  
+  즉 - 비즈니스코드만남겨두게하는것이다.  
+
+--
+ checked Exception 만들기실습 
+    1. 비즈니스로직을 만들때 예외발생할수있는걸 던짐 throws throw
+    2. 핸들링하는곳(코드쓰는곳)에서 try,catch 강제하게한다.
+
+---
+ RuntimeException 
+   1.엔터프라이즈애플리케이션에 유용
+   즉 비즈니스만남기지왜 자꾸 던지고 try catch쓰냐 
+ RuntimeException 으로 처리해라~ 해서나옴 이해안가 ㅅㅂ 
+ 

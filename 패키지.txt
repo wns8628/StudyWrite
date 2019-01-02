@@ -1,0 +1,29 @@
+자바 ee 아키텍쳐 는 두개 
+ MVC 
+ Layer
+
+ 패키지 -관련된거 모와놓은거 , 관련클래스모음이라봐
+ 패키지이름은 유니크해야함
+
+ 패키지나누는연습해라
+
+  *java. 패키지이름은 못씀= 에러뜬다.
+
+ ex) 페인트를 나눠보자
+	
+  com.duzone.paint.shape 
+  com.duzone.paint.point
+  com.duzone.paint.text //그래픽스트링같은거
+  com.duzone.paint.i //인터페이스모음?
+  com.duzone.paint.main
+
+ //하면 이제 쭉 폴더가 쭉쭉나눠짐  
+  컴파일하면 이제 bin쪽에도 쭉쭉나눠져서 클래스파일나오겟지
+
+ 터미널에서 java -cp 패키지이름.....mainapp 
+ 
+ cp= classpath
+ 뭐이렇게해야겟지 
+
+ com.duzone.paint.shape.Rect 
+ com.duzone.paint.shape.*   //이렇게해도됨 성능차이없다 동적이라
