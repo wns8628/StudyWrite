@@ -51,8 +51,38 @@ System.identityHashCode() //오버라이드 되어있으면 이걸써서 오버안된걸뽑아낼수있�
   cpu는 메모리접근하는것에가장 많이씀
  Synchronized , 락거는거임 , 싱크를맞춘다? 스레드
 --
- 문제5 
+ 제너릭 
+  
+ 컴파일문제는없지만 캐스팅할때문제가발생할수있음
+ 그럴떄쓴다?  
+
+	//가변변수 + 제너릭 
+	public <T extends 제한할거> void println(T... ts) {
+		for(T t : ts) {
+			System.out.println(t);	
+		}
+	}
+ 뭐가오던상관없이 받아줄수있도록 <T extends 제한할거> 하면 제한된것만오게함
+
+ 가변변수 sum(Integer... nums) 이런거 매개변수 여러개넣든 하나넣든 상관없게
  
- 스택만들때. 비어있을때 pop하면 익셉션발생하게 
- 큐는 걍널리턴함
- 
+ 	public Integer sum(Integer... nums) {
+		Integer sum = 0;			
+		for(Integer i:nums) {
+			sum +=i;
+		}
+		return sum;
+	}
+
+-------------
+
+ 싱글톤 - 객체하나만유지 getInstance 팩토리메소드를씀
+  
+ ---------
+ O(lon n) 이게젤좋다, (트리?)
+
+---
+ utf-8  1문자당 3바이트임
+
+---
+ 경로안적으면 프로젝트바로밑이라고보면됨 , 사진넣을ㅇ떄
