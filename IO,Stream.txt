@@ -96,5 +96,9 @@ ouputStream(추상) - 자식들
    	      )                                                                          )
 --------------------------
 
- 스캐너 안쓴것 :  File(파일읽기) - FileInputStream(주) -InputStreamReader(보조) - BufferedReader(보조)  
- 스캐너	       : 
+ 스캐너 안쓴것 :    키보드        -  system.in(주)       - InputStreamReader(보조)(바이트->char로바꿔줌) -  | BufferedReader(보조)(한줄씩읽어줌)  - line출력 
+	          File(파일읽기) - FileInputStream(주) -InputStreamReader(보조)(바이트->char로바꿔줌)  - | BufferedReader(보조)(한줄씩읽어줌)- line출력
+			      --------------------------FileReader(주)---------------------------------- |=이걸로 대체가능 근데 키보드처럼 보여주기위해서 한거임  
+										                    	
+
+ 스캐너	쓴거 :  File(파일읽기) - scanner(file) - scanner(라인읽기) 끝 = 개꿀띠
