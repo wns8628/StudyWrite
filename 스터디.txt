@@ -163,13 +163,29 @@ JAVA의 lang 패키지는
  5.2 InputStreamReader/ outputStreamWriter 
     바이트기반 스트림을 문자기반스트림으로 연결해줌 그리고 바이트기반 스트림의 데이터를 
     지정된 인코딩의 문자데이터로 변환 
+   바이트로 읽어서 -> char로 바꿔줌 //즉 utf말고 다른것들 ms949 이런거할떄 이걸써야겠지
 
+   ex ) file(소스) <-> fileInputStream <-> InputStreamReader <->  char로바꿈   <->  BufferdReader 
+          ->                  ->                      ->                                 
+                             주                        보조                         		보조 
+
+  ex )  키보드 <-> system.in <->   InputStreamReader <-> BufferdReader 
+		 주                   보조                            보조 
+
+  ex ) 
+ 	 소켓(							소켓(
+     		버퍼 = 소켓 인풋스트림    =             인터넷             = 아웃풋스트림 = 버퍼          
+     		버퍼 = 소켓 아웃풋스트림 =  		         = 인풋스트림    = 버퍼
+   	      )                                                                          )
+
+  
 --------
  
  6 . 표준입출력 file 
    System.in , out , err 
           입      출    출  
   자바실행시 사용가능 즉 미리빨떄꼽아놈
+
   
  System. SetOut, setErr, SetIn
   콘솔이외의 출력

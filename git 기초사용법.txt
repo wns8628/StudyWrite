@@ -1,0 +1,63 @@
+맨처음 git설치! 회원가입후 폴더만들고 
+
+<git 초기 설정>
+
+ git을 사용하기 위해서는 user.email과 user.name을 등록해야 합니다. 아래 두개의 명령어는 git을 설치하고 한번만 해주시면 됩니다.
+
+ $ git config --global user.email "<이메일 주소>"
+ $ git config --global user.name "<이름>"
+
+ 하고난뒤 
+
+  - 깃사이트 들어가서 폴더만들고 
+
+  - git init 하면됨
+
+git remote add origin https://github.com/wns8628/-.git
+git push -u origin master
+
+  이런거   쭈루루룩하고
+
+이제 온라인에 myapp의 저장소가 설정되고 저장되었습니다. 앞으로 프로젝트를 저장하고 싶을 때는 
+
+git add .
+
+git commit -m "<commit message>"
+
+git push -u origin master
+
+를 사용하시면 됩니다.
+
+******************************************************************************
+
+커밋한거 불러오거나 되돌릴때 
+
+ 일단 확인은  
+
+ git log --oneline 
+
+ git reset --hard [id]
+ git reset --soft [id]
+==================================
+ 
+
+hello-world.git 을 clone 한 적이 있는 경우: 터미널에서 해당 폴더로 이동 후 아래 명령어들을 붙여넣기합니다. 폴더 내 모든 코드가 이 게시물의 코드로 교체됩니다. 이를 원치 않으시면 이 방법을 선택하지 마세요.
+git reset --hard
+git pull
+git reset --hard 38f5b9f
+git reset --soft 852384b
+npm install
+atom .
+hello-world.git 을 clone 한 적이 없는 경우: 터미널에서 코드를 다운 받을 폴더로 이동한 후 아래 명령어들을 붙여넣기하여 hello-world.git 을 clone 합니다.
+git clone https://github.com/a-mean-blogger/hello-world.git
+cd hello-world
+git reset --hard 38f5b9f
+git reset --soft 852384b
+npm install
+atom .
+
+==========================================================================================================================
+ <npm init>
+
+npm init 명령어는 node 프로그램을 시작(initialize)하는 명령어로 package.json 파일을 생성을 돕습니다. 
+package.json 파일은  해당 node 프로그램에 대한 기본 정보를 담고 있는 파일입니다.

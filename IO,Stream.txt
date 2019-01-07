@@ -66,3 +66,35 @@ ouputStream(추상) - 자식들
 ** I/O는 기능확장을 소스레벨에서안하고(상속,오버라이드같은), 런타임때한다.(실행중) - 데코레이션패턴
           (보조스트림)
 
+----------------------------------
+  데코레이션 패턴
+
+  FileOutputStream fos   //주스트림
+  BufferedOutputStream bos  //보조스트림 
+
+  즉 주스트림을 상속받아서 오버라이딩하는식으로하지않고
+  이렇게 보조스트림에 넣어서 쓴다 즉 런타임떄 확장한다. 
+
+----------------------------
+ 
+ InputStreamReader/ outputStreamWriter 
+    바이트기반 스트림을 문자기반스트림으로 연결해줌 그리고 바이트기반 스트림의 데이터를 
+    지정된 인코딩의 문자데이터로 변환 
+   바이트로 읽어서 -> char로 바꿔줌 //즉 utf말고 다른것들 ms949 이런거할떄 이걸써야겠지
+
+   ex ) file(소스) <-> fileInputStream <-> InputStreamReader <->  char로바꿈   <->  BufferdReader 
+          ->                  ->                      ->                                 
+                             주                        보조                         		보조 
+
+  ex )  키보드 <-> system.in <->   InputStreamReader <-> BufferdReader 
+		 주                   보조                            보조 
+
+  ex ) 
+ 	 소켓(							소켓(
+     		버퍼 = 소켓 인풋스트림    =             인터넷             = 아웃풋스트림 = 버퍼          
+     		버퍼 = 소켓 아웃풋스트림 =  		         = 인풋스트림    = 버퍼
+   	      )                                                                          )
+--------------------------
+
+ 스캐너 안쓴것 :  File(파일읽기) - FileInputStream(주) -InputStreamReader(보조) - BufferedReader(보조)  
+ 스캐너	       : 
