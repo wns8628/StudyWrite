@@ -91,8 +91,8 @@ System.identityHashCode() //오버라이드 되어있으면 이걸써서 오버안된걸뽑아낼수있�
  소켓 : 안에2개버퍼가있다  -  밑의그림으로 이해해라
   
  	 소켓(							소켓(
-     		버퍼 = 소켓 인풋스트림    =             인터넷             = 아웃풋스트림 = 버퍼          
-     		버퍼 = 소켓 아웃풋스트림 =  		         = 인풋스트림    = 버퍼
+     		버퍼 = 소켓 인풋스트림 (input)   =             인터넷             = 아웃풋스트림(pw) = 버퍼          
+     		버퍼 = 소켓 아웃풋스트림(pw) =  		         = 인풋스트림    = 버퍼
    	      )                                                                          )
 
  * get hearder 홈페이지 헤더 정보를 inputstream - inputstreamReader- bufferedReader 를통해 한줄씩
