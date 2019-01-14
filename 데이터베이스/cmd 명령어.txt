@@ -1,0 +1,31 @@
+워크벤치 꿀팁
+
+ SET SQL_SAFE_UPDATES =0; : 안전모드풀기
+ ctrl + b : 자동정렬
+ ctrl + / : 주석(numlock쪽)
+ 
+cmd 접속 
+1) mysql -u kickscar -D testdb -p
+                (유저)    (디비이름)
+
+
+select version()     : 버전확인 
+select current_date; : 오늘날짜
+
+show databases;    : 디비목록보기
+
+use 디비이름;        : 디비선택 
+
+show tables;          : 테이블보기
+
+create user 'webdb'@'localhost' identified by 'webdb'; 유저생성
+ 	    (로컬호스트에서만접속가능하게)
+
+grant all privileges on webdb.* to 'webdb'@'localhost';  : 권한주기
+      (모든)			
+
+
+
+-------
+소스실행? 
+source employees.sql;
