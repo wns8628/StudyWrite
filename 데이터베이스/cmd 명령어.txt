@@ -24,8 +24,14 @@ create user 'webdb'@'localhost' identified by 'webdb'; 유저생성
 grant all privileges on webdb.* to 'webdb'@'localhost';  : 권한주기
       (모든)			
 
-
-
 -------
 소스실행? 
 source employees.sql;
+
+--바로넣기
+mysql -u hr -p hr employees < employees.sql
+
+----------
+
+ order by 는 써줘라 안그러면 select할때 insert한 순서대로 안보인다. (나중엔)
+
