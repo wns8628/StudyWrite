@@ -1,3 +1,5 @@
+-- *hr_employees --
+
 -- 집계함수(통계)
 select emp_no, avg(salary), sum(salary)
 	from salaries
@@ -19,6 +21,7 @@ select *
   from ( select max(salary) as max_salary,
 			    min(salary) as min_salary
 		   from salaries where emp_no = 10060) a;
+           
            
            
 -- 사원별 직책변경몇번인지 

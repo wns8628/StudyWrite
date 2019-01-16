@@ -1,3 +1,5 @@
+-- *hr_employees --
+
 show tables;
 
 select count(*) from employees;
@@ -127,6 +129,144 @@ select (year(curdate()) - year(min(birth_date))), (year(curdate())-year(max(birt
 select (year(curdate()) - year(min(birth_date))), (year(curdate())-year(max(birth_date))) 
 from salaries, employees 
 where employees.emp_no = salaries.emp_no and to_date = (select max(to_date) from titles);
+
+
+
+-- 3. 조인 문제 ------------------------------------------------------------------------------------------------------
+
+select * from employees;
+select * from salaries;
+select * from dept_manager;
+select * from titles;
+select * from dept_emp; 
+select * from departments;
+
+-- 1번 
+  select a.emp_no as "사번", a.first_name as "이름", b.salary as "연봉"    
+    from employees a, salaries b
+   where a.emp_no = b.emp_no
+     and b.to_date = '9999-01-01'
+order by b.salary desc;
+ 
+-- 2번 
+  select a.emp_no as "사번",concat(a.last_name,' ',a.first_name), b.title as "직책"    
+    from employees a, titles b
+   where a.emp_no = b.emp_no 
+     and b.to_date = '9999-01-01'
+order by concat(a.first_name,' ',a.last_name);
+	 
+-- 3번
+  select a.emp_no as "사번", a.first_name as "이름", c.dept_name as "부서"    
+    from employees a, dept_emp b, departments c
+   where a.emp_no = b.emp_no  
+     and b.dept_no = c.dept_no   
+     and b.to_date = '9999-01-01'
+order by a.last_name;
+
+-- 4번
+  select a.emp_no as "사번", concat(a.last_name,' ',a.first_name) as "이름", b.salary as "연봉", c.title "직책", e.dept_name as "부서" 
+    from employees a, salaries b, titles c, dept_emp d, departments e
+   where a.emp_no = b.emp_no
+     and a.emp_no = c.emp_no
+	 and a.emp_no = d.emp_no
+     and d.dept_no = e.dept_no
+     and b.to_date = '9999-01-01'
+     and c.to_date = '9999-01-01'
+     and d.to_date = '9999-01-01'
+order by a.last_name;    
+
+-- 5번
+ select a.emp_no as "사번", concat(a.last_name,' ',a.first_name) as "이름"
+   from employees a, titles b 
+  where a.emp_no =  b.emp_no 
+    and b.title = 'Technique Leader'
+    and b.to_date <> '9999-01-01';
+    
+-- 6번 
+ select concat(a.first_name,' ',a.last_name) as "이름", d.dept_name as "부서", b.title as "직책"
+   from employees a, titles b, dept_emp c, departments d
+  where a.emp_no = b.emp_no
+    and a.emp_no = c.emp_no
+    and c.dept_no = d.dept_no 
+    and b.to_date = '9999-01-01'
+    and c.to_date = '9999-01-01'
+    and a.last_name like 'S%'; 
+	
+-- 7번 
+  select concat(c.first_name,' ',c.last_name) as "사원"
+    from titles a, salaries b, employees c
+   where a.emp_no = b.emp_no
+     and b.emp_no = c.emp_no 
+     and b.salary >= 40000
+     and a.title = 'Engineer'
+     and a.to_date = '9999-01-01'
+	 and b.to_date = '9999-01-01'
+order by b.salary desc;
+
+-- 8번
+  select a.title as "직책" , b.salary as "급여"
+    from titles a, salaries b 
+   where a.emp_no = b.emp_no
+     and b.salary > 5000
+	 and a.to_date = '9999-01-01'
+	 and b.to_date = '9999-01-01'
+order by b.salary desc;
+
+
+-- 9번
+  select c.dept_name , avg(a.salary)
+    from salaries a, dept_emp b, departments c 
+   where a.emp_no = b.emp_no
+     and b.dept_no = c.dept_no
+     and a.to_date = '9999-01-01'
+     and b.to_date = '9999-01-01'	
+group by c.dept_name 
+order by avg(a.salary) desc;	
+
+-- 10번 
+  select b.title, avg(a.salary)
+    from salaries a, titles b
+   where a.emp_no = b.emp_no
+     and a.to_date = '9999-01-01'
+     and b.to_date = '9999-01-01'	
+group by b.title
+order by avg(a.salary) desc;
+
+-- -------------------------------------------------------------------------------------------------
+-- 4.서브쿼리 
+
+-- 1번문제
+select count(*) 
+  from employees a, salaries b 
+  where a.emp_no = b.emp_no 
+    and b.to_date = '9999-01-01'
+    and b.salary > (select avg(salary) 
+					  from salaries
+					 where to_date = '9999-01-01');
+
+-- 2번문제 
+ select  a.emp_no as "사번", concat(a.last_name,' ',a.first_name) as "이름", c.부서, c.연봉
+   from employees a , salaries b , (select d.dept_name as "부서", max(b.salary) as "연봉" 
+									  from employees a, salaries b,  dept_emp c, departments d
+									 where a.emp_no = b.emp_no
+									   and a.emp_no = c.emp_no
+									   and c.dept_no = d.dept_no
+									   and b.to_date = '9999-01-01'
+									   and c.to_date = '9999-01-01'
+								  group by d.dept_name
+								  order by max(b.salary) desc) c
+  where b.salary = c.연봉
+    and a.emp_no = b.emp_no
+    and b.to_date = '9999-01-01'
+order by c.연봉 desc;
+
+
+
+
+
+
+
+
 
 
 

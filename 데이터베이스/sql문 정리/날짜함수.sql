@@ -1,3 +1,4 @@
+-- *hr_employees --
 
 -- 현재날짜
 select curdate(), current_date;

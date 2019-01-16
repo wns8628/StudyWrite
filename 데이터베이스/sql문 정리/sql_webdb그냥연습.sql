@@ -1,3 +1,5 @@
+-- *web db --
+
 SET SQL_SAFE_UPDATES =0;
 
 -- 테이블 생성

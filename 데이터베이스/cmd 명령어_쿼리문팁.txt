@@ -1,0 +1,90 @@
+워크벤치 꿀팁
+
+ SET SQL_SAFE_UPDATES =0; : 안전모드풀기
+ ctrl + b : 자동정렬
+ ctrl + / : 주석(numlock쪽)
+ 
+cmd 접속 
+1) mysql -u kickscar -D testdb -p
+                (유저)    (디비이름)
+
+
+select version()     : 버전확인 
+select current_date; : 오늘날짜
+
+show databases;    : 디비목록보기
+
+use 디비이름;        : 디비선택 
+
+show tables;          : 테이블보기
+
+create user 'webdb'@'localhost' identified by 'webdb'; 유저생성
+ 	    (로컬호스트에서만접속가능하게)
+
+grant all privileges on webdb.* to 'webdb'@'localhost';  : 권한주기
+      (모든)			
+
+-------
+소스실행? 
+source employees.sql;
+
+--바로넣기
+mysql -u hr -p hr employees < employees.sql
+
+----------
+
+ order by 는 써줘라 안그러면 select할때 insert한 순서대로 안보인다. (나중엔)
+
+------------------------
+쿼리문 팁
+
+
+쿼리는 도메인조건에 맞게 '딱'나와야한다. 결과값
+------------------------
+select  - 속성
+  from - 테이블
+where - 조건
+Order by -정렬 asc/desc 
+
+*where로 임시만들고난다음에! order by로 정렬된 임시테이블만들어서 
+보여준다! 
+
+집계함수- count, max , .. 등등
+ 원칙적으로 집계함수 하나만와야한다. name,count(*) 이런건 원래말이안됨
+근데 Group by를 쓰면 된다.
+각각의 직군별로, 각각, 뭐 별로~ 이런건  : Group by 쓰면됨
+
+ex) 그룹바이한다음에 - 카운팅한다
+
+
+*그룹바이 = 그룹바이는 그룹별로 묶을거 빼고! 속성에들어오면 절대안됨!
+-----------------------------
+
+5) select 
+
+1) from
+
+2) where 
+
+3) group by 
+
+4) HAVING
+
+설명 
+
+   where절 먼저탄다.  -- 일단골라냄 - 임시테이블1 만들어짐 이걸로 group by 한다
+
+   group by = where절에서 걸러낸 임시테이블로 group by한다.  여기서 임시테이블2가나옴
+ 
+   임시테이블2로 having 절로 조건을 주면 된다. - 임시테이블3이나오게됨  
+
+---------------------------------------------------------
+집계함수는 원래 하나의 결과만보여줌 그래서 그냥 필드써주면안됨!
+
+group by써서해야함!
+   
+-------------------------------------------------------
+권한 
+'admin'@'192.168.1.%';  // admin사용자 인데 192.168.1.% 로 접속한놈만허용
+
+

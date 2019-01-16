@@ -1,3 +1,4 @@
+-- *hr_employees --
 
 -- MYSQL 문자열 함수
 
