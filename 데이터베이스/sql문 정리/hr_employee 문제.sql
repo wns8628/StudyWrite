@@ -260,6 +260,92 @@ select count(*)
     and b.to_date = '9999-01-01'
 order by c.연봉 desc;
 
+-- 3번
+ select a.emp_no as "사번", concat(a.first_name,' ',a.last_name) as "이름" , b.salary as "연봉" , e.dept_name, e.부서별평균연봉
+   from employees a, salaries b , dept_emp c, departments d , ( select d.dept_name ,avg(b.salary) as "부서별평균연봉"
+																  from employees a, salaries b, dept_emp c, departments d
+																 where a.emp_no = b.emp_no
+																   and a.emp_no = c.emp_no
+																   and c.dept_no = d.dept_no
+                                                                   and b.to_date = '9999-01-01'
+                                                                   and c.to_date = '9999-01-01'
+															  group by d.dept_name ) e
+  where a.emp_no = b.emp_no
+    and a.emp_no = c.emp_no
+    and c.dept_no = d.dept_no
+    and d.dept_name = e.dept_name
+    and c.to_date = '9999-01-01'
+    and b.to_date = '9999-01-01'
+	and b.salary > e.부서별평균연봉
+    limit 0, 400000;
+   
+ -- 4번 
+ select  a.emp_no as "사번", concat(a.first_name,' ',a.last_name) as "이름", d.emp_no
+   from employees a, dept_emp b , departments c, dept_manager d
+  where a.emp_no = b.emp_no 
+	and a.emp_no = d.emp_no 
+    and b.dept_no = c.dept_no
+    and b.to_date = '9999-01-01'
+    and d.to_date = '9999-01-01';
+        
+ select * from dept_manager;
+
+ -- 5번 
+ select  a.emp_no as "사번", concat(a.first_name,' ',a.last_name) as "이름", c.title as "직책", d.salary as "연봉"
+   from employees a, dept_emp b , titles c,  salaries d, departments e 
+  where a.emp_no = b.emp_no 
+	and a.emp_no = c.emp_no 
+    and b.dept_no = e.dept_no
+    and a.emp_no = d.emp_no
+    and b.to_date = '9999-01-01'
+    and d.to_date = '9999-01-01'
+	and c.to_date = '9999-01-01'
+    and e.dept_name = (  select d.dept_name 
+						   from employees a, salaries b, dept_emp c, departments d
+						  where a.emp_no = b.emp_no
+							and a.emp_no = c.emp_no
+							and c.dept_no = d.dept_no
+							and b.to_date = '9999-01-01'
+							and c.to_date = '9999-01-01'
+					   group by d.dept_name
+					   order by avg(b.salary) desc
+					      limit 0,1)  
+order by d.salary desc;
+                          
+ -- 6번 
+	select d.dept_name as "평균연봉이 가장높은 부서"
+	  from employees a, salaries b, dept_emp c, departments d
+	 where a.emp_no = b.emp_no
+	  and a.emp_no = c.emp_no
+	  and c.dept_no = d.dept_no
+      and b.to_date = '9999-01-01'
+	  and c.to_date = '9999-01-01'
+ group by d.dept_name
+ order by avg(b.salary) desc
+ limit 0,1;                          
+ 
+ -- 7번	
+ 	select c.title as "평균연봉이 가장 높은 직책"
+	  from employees a, salaries b, titles c
+	 where a.emp_no = b.emp_no
+	  and a.emp_no = c.emp_no
+      and b.to_date = '9999-01-01'
+	  and c.to_date = '9999-01-01'
+ group by c.title
+ order by avg(b.salary) desc
+ limit 0,1;                          
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
 
 
 
