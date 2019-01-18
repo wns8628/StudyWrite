@@ -1,0 +1,73 @@
+DAO란
+
+ DAO객체를 만들어서
+------------------
+main(){ ~~ }
+   
+    ↓  PetDAO를사용( VO를 이용해서 데이터교환)
+
+ PetDAO
+ 
+    ↓ CRUD한다
+   
+  petDB( JDBC )
+
+-------------------
+VO : 하나의 ROW를 담는 객체(insert도 가능)
+       테이블의 필드와 매핑되어있다.
+
+
+----------
+ 테스트 
+
+com.douzone.jdbc.bookshop
+ 	MainApp 
+com.douzone.jdbc.bookshop.test
+	 BookDaoTest
+ 	 AuthorDaoTest
+com.douzone.jdbc.bookshop.dao
+	 BookDao
+ 	 AuthorDao
+com.douzone.jdbc.bookshop.vo
+	 BookVo
+ 	 AuthorVo
+
+=========
+
+ 디비세팅 -> 관리자만들면서 다우만들어
+ -> 그냥만들면 좀그래  ->그래서 관리자프로그램부터만들어
+
+
+ 
+------
+실습
+
+com.douzone.jdbc.hr
+ 	HRApp 
+com.douzone.jdbc.hr.test
+	 EmployeeDaoTest
+com.douzone.jdbc.hr.dao
+	 EmployeeDao
+com.douzone.jdbc.hr.vo
+	 EmployeeVo
+
+
+-------------------------------------------------------------------------------------
+ 
+ 정리 
+
+ VO 없이 CRUD하면 
+
+   insert(인자1,인자2,인자3,인자4....) 함수에 이따구로해야함
+
+ DAO도 안쓰면  
+   sql처리도 직접다해야되기때문에 비즈니스로직만 남기기 힘들다.
+
+
+ 그래서 VO와 DAO를 사용하여 
+
+  * 인자도 쉽게넘기고 DAO가 받아서 sql문 알아서만들어서 DB처리를해준다.
+
+
+
+

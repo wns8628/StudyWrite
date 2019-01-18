@@ -280,7 +280,7 @@ order by c.연봉 desc;
     limit 0, 400000;
    
  -- 4번 
- select  a.emp_no as "사번", concat(a.first_name,' ',a.last_name) as "이름", d.emp_no
+ select a.emp_no as "사번", concat(a.first_name,' ',a.last_name) as "이름", d.emp_no
    from employees a, dept_emp b , departments c, dept_manager d
   where a.emp_no = b.emp_no 
 	and a.emp_no = d.emp_no 
@@ -300,7 +300,7 @@ order by c.연봉 desc;
     and b.to_date = '9999-01-01'
     and d.to_date = '9999-01-01'
 	and c.to_date = '9999-01-01'
-    and e.dept_name = (  select d.dept_name 
+    and e.dept_name = ( select d.dept_name
 						   from employees a, salaries b, dept_emp c, departments d
 						  where a.emp_no = b.emp_no
 							and a.emp_no = c.emp_no
@@ -309,7 +309,7 @@ order by c.연봉 desc;
 							and c.to_date = '9999-01-01'
 					   group by d.dept_name
 					   order by avg(b.salary) desc
-					      limit 0,1)  
+					      )  
 order by d.salary desc;
                           
  -- 6번 
@@ -335,6 +335,7 @@ order by d.salary desc;
  order by avg(b.salary) desc
  limit 0,1;                          
  
+ -- 
  
  
  
