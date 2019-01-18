@@ -1,0 +1,15 @@
+#Wed Jan 16 15:17:11 KST 2019
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.port=3306
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.password=webdb
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.driverJar=D\:\\duzon\\libs\\mysql-connector-java-5.1.38\\mysql-connector-java-5.1.38-bin.jar
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.user=webdb
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.databaseName=webdb
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.url=jdbc\:mysql\://localhost\:3306/webdb?characterEncoding\=utf8
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.name=\uB9C8\uC9C0\uB9C9\uC73C\uB85C \uAD6C\uC131\uD55C \uC5F0\uACB0
+eclipse.preferences.version=1
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.host=localhost
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.characterEncoding=utf8
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.driverClass=com.mysql.jdbc.Driver
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.productId=com.tomato.db.mysql
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.propertiesKeys=port/user/password/characterEncoding/host/databaseName
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.productName=MySQL 5.1/5.5/5.6/5.7
