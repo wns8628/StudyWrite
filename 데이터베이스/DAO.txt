@@ -42,8 +42,8 @@ com.douzone.jdbc.bookshop.vo
 ------
 ½Ç½À
 
-com.douzone.jdbc.hr
- 	HRApp 
+com.douzone.jdbc.hr.
+ 	 HRApp 
 com.douzone.jdbc.hr.test
 	 EmployeeDaoTest
 com.douzone.jdbc.hr.dao

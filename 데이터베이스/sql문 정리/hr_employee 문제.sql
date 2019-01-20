@@ -280,15 +280,16 @@ order by c.연봉 desc;
     limit 0, 400000;
    
  -- 4번 
- select a.emp_no as "사번", concat(a.first_name,' ',a.last_name) as "이름", d.emp_no
-   from employees a, dept_emp b , departments c, dept_manager d
-  where a.emp_no = b.emp_no 
-	and a.emp_no = d.emp_no 
-    and b.dept_no = c.dept_no
-    and b.to_date = '9999-01-01'
-    and d.to_date = '9999-01-01';
-        
- select * from dept_manager;
+select a.emp_no as "사번", concat(a.first_name,' ',a.last_name) as "이름", c.매니저이름 ,c.dept_name as "부서이름"
+  from employees a, dept_emp b,  (select concat(c.first_name,' ',c.last_name) as "매니저이름", b.dept_name , b.dept_no
+									from dept_manager a, departments b , employees  c
+								   where a.dept_no = b.dept_no
+									 and c.emp_no = a.emp_no
+									 and a.to_date='9999-01-01') c
+where a.emp_no = b.emp_no
+  and c.dept_no = b.dept_no
+  and b.to_date = '9999-01-01'
+limit 0,400000;
 
  -- 5번 
  select  a.emp_no as "사번", concat(a.first_name,' ',a.last_name) as "이름", c.title as "직책", d.salary as "연봉"
@@ -308,7 +309,8 @@ order by c.연봉 desc;
 							and b.to_date = '9999-01-01'
 							and c.to_date = '9999-01-01'
 					   group by d.dept_name
-					   order by avg(b.salary) desc
+					   order by avg(b.salary) desc 
+                       limit 0,1 
 					      )  
 order by d.salary desc;
                           
@@ -335,12 +337,22 @@ order by d.salary desc;
  order by avg(b.salary) desc
  limit 0,1;                          
  
- -- 
- 
- 
- 
- 
-
+ -- 8번
+select c.dept_name as "부서이름", concat(a.first_name,' ',a.last_name) as "사원이름", c.매니저이름, c.salary as "매니저연봉" , d.salary as "자기연봉"
+  from employees a, dept_emp b,  (select concat(c.first_name,' ',c.last_name) as "매니저이름", b.dept_name , b.dept_no , d.salary
+									from dept_manager a, departments b , employees  c , salaries d
+								   where a.dept_no = b.dept_no
+									 and c.emp_no = a.emp_no
+									 and d.emp_no = a.emp_no
+									 and d.to_date ='9999-01-01'
+									 and a.to_date='9999-01-01') c  ,  salaries d
+where a.emp_no = b.emp_no
+  and c.dept_no = b.dept_no
+  and a.emp_no = d.emp_no
+  and d.to_date = '9999-01-01'
+  and b.to_date = '9999-01-01'
+  and d.salary >  c.salary
+order by c.salary desc;
 
 
 
