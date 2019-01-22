@@ -1,10 +1,10 @@
-#Wed Jan 16 15:17:11 KST 2019
+#Tue Jan 22 16:54:51 KST 2019
 com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.port=3306
-com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.password=webdb
-com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.driverJar=D\:\\duzon\\libs\\mysql-connector-java-5.1.38\\mysql-connector-java-5.1.38-bin.jar
-com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.user=webdb
-com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.databaseName=webdb
-com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.url=jdbc\:mysql\://localhost\:3306/webdb?characterEncoding\=utf8
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.password=bookmall
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.driverJar=D\:\\duzon\\StudyWrite\\libs\\mysql-connector-java-5.1.38\\mysql-connector-java-5.1.38-bin.jar
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.user=bookmall
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.databaseName=bookmall
+com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.url=jdbc\:mysql\://localhost\:3306/bookmall?characterEncoding\=utf8
 com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.common.name=\uB9C8\uC9C0\uB9C9\uC73C\uB85C \uAD6C\uC131\uD55C \uC5F0\uACB0
 eclipse.preferences.version=1
 com.tomato.exerd.connection.com.tomato.db.mysql.lastSelectedConnection.properties.host=localhost

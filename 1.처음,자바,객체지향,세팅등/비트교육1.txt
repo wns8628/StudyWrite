@@ -1,0 +1,23 @@
+참고 : goo.gl/BwabNW
+
+
+6교시하고 2교시는 과제(설계,코딩등등?)
+
+
+정리폴더 : d:/duzon
+		|------ 강의자료
+                |------ eclipse
+                |------ workspace
+		|------ libs         <-라이브러리 
+
+
+- 순서 -
+
+Advanced java programming
+Data Structure with Java
+RDBMS(MySQL , Oracle)
+Svlet/JSP
+HTML/CSS/JavaScript(jQuery, Vue.js, React, Angular.js)
+
+흠.. 일단 백엔드는 스프링이고 프론트는 뷰나 제이쿼리나 등등쓰겠지
+

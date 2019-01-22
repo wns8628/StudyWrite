@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="자원 &apos;webdb/bookmall.exerd&apos;을(를) &apos;bookmall_re.exerd&apos;(으)로 이름 바꾸기" description="&apos;bookmall.exerd&apos; 자원 이름 바꾸기" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="bookmall.exerd" name="bookmall_re.exerd" stamp="1548142126343" updateReferences="true"/>&#x0A;<refactoring comment="자원 &apos;webdb/asadas.exerd&apos;을(를) &apos;bookmall.exerd&apos;(으)로 이름 바꾸기" description="&apos;asadas.exerd&apos; 자원 이름 바꾸기" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="asadas.exerd" name="bookmall.exerd" stamp="1548142133716" updateReferences="true"/>
+</session>
