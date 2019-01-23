@@ -70,31 +70,41 @@ select owner as "주인",count(*) as "애완동물 수"
 --
     
     
-    
--- 
--- create table employees(
--- 	no INT(11) NOT NULL auto_increment,
--- 	birth_date date,
--- 	first_name varchar(14),
---     last_name  varchar(16),
---     gender char(1),
---     hir_date date,
---     PRIMARY KEY(no)
--- );
--- 
--- select * from employees;
--- 
--- insert into employees(birth_date,first_name,last_name,gender,hir_date) values('1993-08-10','김','세준','M',null);
--- insert into employees(birth_date,first_name,last_name,gender,hir_date) values('1993-08-11','홍','길동','M',null);
--- insert into employees(birth_date,first_name,last_name,gender,hir_date) values('1993-08-12','김','택주','M',null);
--- insert into employees(birth_date,first_name,last_name,gender,hir_date) values('1993-08-13','최','기석','F',null);
--- insert into employees(birth_date,first_name,last_name,gender,hir_date) values('1993-08-14','김','상욱','F',null);
--- 
--- truncate employees;
--- 
--- -- 오름차순 , 별칭 
--- select last_name as "이름", gender as "성별", birth_date as "입사일" from employees ORDER BY birth_date asc ; 
--- 
--- -- 남직원수 여직원수
--- select count(if(gender="M", gender, null)) as "남직원" , count(if(gender="F", gender, null)) as "여직원" from employees;
+-- guestbook -------------------------------- model 1 실습-------------------------------
+-- table emaillist test
+desc emaillist;
 
+-- insert
+insert 
+  into emaillist
+values(null, '둘', '리', 'dooly@gmail.com');
+
+insert 
+  into emaillist 
+values(null, '마', '이콜', 'michol@gmail.com');
+ 
+-- select
+select no,first_name, last_name, email
+  from emaillist
+order by no desc;
+
+-- -----------------------------------------
+-- guest book 
+
+select no , name, password,message, reg_date
+       from guestbook;
+
+select now();
+
+insert into guestbook
+      values(null,'김세준',password('1234'),'안녕 세준아!', now());
+ 
+delete from guestbook where no=8 and password = password('1234');
+
+ALTER TABLE guestbook AUTO_INCREMENT=1;
+
+delete from guestbook; 
+
+SET SQL_SAFE_UPDATES =0;
+
+-- ---------------------------------------------------------------------------------------------
