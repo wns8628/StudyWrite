@@ -6,11 +6,90 @@
 계층형으로보셈
 *
   브라우저<----->JSP<----------> dao<----------> db
-                            
+                            	   (자바빈즈)
+  
+   브라우저가 각각의JSP를 요청한다. -분기가필요없지   ex) ~~/a.jsp 
 
   이렇게되면 JSP에 자바코드가 너무많이들어간다. = 별로다 
                                        (일을혼자다하니깐)
- 
+   
  
 ------------------------------
 
+ 모델2 - JSP+Servlet (MVC)
+
+  JSP     - 뷰
+  서블릿 -컨트롤러 : 라우팅의역할
+  DAO   - 모델?
+
+*계층형으로보셈
+
+  	    (요청)		
+   브라우저<-------> Servlet(Controller) <----------> dao(Model)<----------> db
+        ↑		      ↓                		   		      
+        ↑	                  ↓(요청연장):데이터전달용으로 중요
+        ↑		      ↓                		   		                         		      
+          ↖   ← ←   JSP(view)	
+           (응답)             
+
+ 즉 모든 브라우저의 요청이 컨트롤러(서블릿)가 받음 = 서블릿이 요청분석해서 알맞은 JSP넘겨줌
+ *서블릿에서 JSP로 넘어갈때 진짜그냥 넘어감
+ ex) model1에서는 브라우저는 '리다이렉트응답 받고 난 뒤' 
+      브라우저가 리다이렉트응답이구나하고 '브라우저가' 메인페이지를찾아가는거임(다시요청)
+      근데 mvc에서는 Servlet 에서 바로 메인페이지JSP로 넘어가서 보여주는거임
+
+  데이터를 리퀘스트객체에담는다? 
+
+ 1. request extends  = 요청이 연장된다.
+ 2. dispatch request = 요청을 분기시킨다
+ 3. forward request = 서블릿->JSP 가는걸말함 
+
+*view폴더는 web-inf안에담아라 = 접근못하게?
+
+------
+
+ 모델2 mysite 분석
+
+사용자는 우리사이트를본다.
+사용자는 회원가입을한다.
+사용자는 방명록을쓴다. 등등
+     .....
+      ↓					     (Repository)
+  브라우저<-------> Servlet(Controller) <----------> dao(Model)<----------> db(   )
+     ↓			↓		         ↓			 ↓
+/guest	 	  guestServlet		      guestDao		guestbook
+/user		  userServlet		      userDao		user
+/board		  BoardServlet		      BoardDao     		board
+		  mainServlet
+
+ 즉 요청이 여러가지이면 각각 모듈화 시킨다. 
+
+ 이걸하면서 
+
+
+------------------------
+ * 프레임워크 비스무리한걸만들어볼거다.
+
+ 즉 서블릿에서 else if 이딴걸로 계속하면 복잡하니 나누자 action을이용하여
+
+회사의 라이브러리 
+
+ com.douzone.mvc.util
+	WebUtils
+ com.douzone.mvc.action
+	AbstractActionFactory
+	Action 
+	 
+	↓	
+ 	
+ com.douzone.mysite.action.main 에서 액션할것과 행동들 구현하면됨
+
+
+-----------------------
+
+
+
+
+
+
+     
