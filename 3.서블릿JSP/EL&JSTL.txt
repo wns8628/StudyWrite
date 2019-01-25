@@ -1,0 +1,56 @@
+
+ Expression Language
+
+ <%=  vo.getName() %>  // 자바코드인 이딴거 안쓰겠다. !
+   ↓  
+ $vo.name   //이런걸쓰겠다.  내부적으로는 위에처럼돌아가겠지.
+
+
+- 개발이유-
+ 자바 개발자들이 초기에 jsp에 사용하는 태그를 직접 만들어서 사용 
+--> 각기 다른 태그들을 JSP Standard Tag Libary에서 정의해서 제공해 줄테니 이걸 사용해라
+--> 결과 : <% %>에서 ex) <c:if>, <c:foreach>를 사용 
+
+
+-------------------------------
+
+ 그니깐 
+
+서블릿 : request.setAttribute("iVal", iVal);   //이렇게 서블릿에서 데이터를 JSP에서보내면 
+ 
+ JSP : 1) request.getAttribute("iVal")    // JSP에서 이렇게 받아줘야하는데 이딴거 귀찮으니 걍 
+        2) <%= iVal %>
+
+	↓
+
+   	${iVal }  이걸로끝~
+ 
+
+---------------------
+
+ 객체의 저장범위 - 생명기간? 스코프 잘알아야함
+				내객체가 어느범위에서 살아있는가 !
+
+ 크게 4개로분류 
+   page scope
+
+   request scope
+
+   session scope      // 같은 리퀘스트를 모아놓은걸말함 = 세션? 
+
+   application scope 
+
+
+
+-----------------------
+jsp를 맨위에 달아줘야 jstl을 사용가능 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
+
+
+
+
+
+
+
