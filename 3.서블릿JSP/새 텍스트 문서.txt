@@ -1,0 +1,48 @@
+no	      : 글번호 (Primary key)	
+title	      : 타이틀
+group_no   : 그룹번호     -  ↘
+order_no    : 그룹내 순서 -  → 화면을위한 필드임 이걸쓰면 리스트뽑기가쉽다. 
+depth 	      : 글의 깊이 -  ↗
+
+
+ insert __~ max(g_no)+1 널? 
+
+
+검색 kwd? 
+
+order_no    : 그룹내 순서 - 새글시1
+depth 	      : 글의 깊이 -  새글시0
+
+ 
+
+답글.?
+  1) group _ no = 그대로 
+  2) order_no+1  =  2가되겠지
+  3) depth +1 = 1이되겠지
+  4) update set  order_no+1 where g_no = and o_no >=
+  5) insert?   
+
+
+--------------------
+
+ 페이지네이션
+
+ limit으로 가져와야함 ( ex 10개씩) 
+
+  31개의 글이있다.
+  4개의 페이지가있겠지   
+ 31/10 = 3 나머지 1   = 4페이지 
+
+5페이지가있다면 
+ > (링크에)  a=list & p=6 이게걸려야지 ?
+ 
+  page ~ =0이면 안그리고
+ firstpage=
+ lastpage= 
+ nextpage?
+ pagecount?
+ pagelistcount? 
+
+ 뭐이런거.. 넘기면다할수있다
+ 
+  

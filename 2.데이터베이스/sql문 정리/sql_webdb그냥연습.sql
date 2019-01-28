@@ -110,3 +110,41 @@ SET SQL_SAFE_UPDATES =0;
 -- ---------------------------------------------------------------------------------------------
 
 select * from user;
+
+select name,email from user where no=1;
+
+
+-- -----------------------------------------------------------------------------------------------------
+
+
+select * from board;
+																-- 조,그,오,뎁,유
+insert into board values(null,'1번글입니다. 하잉', '내용1이당~', now(),  0, 1,1,0,1);
+insert into board values(null,'2번글입니다. 하잉2', '내용2이당~', now(), 0, 2,1,0,1);
+insert into board
+	 values(null,'3번글입니다. 하잉3', '내용3이당~', now(), 0, (select ifnull(max(g_no)+1, 1) from board a) ,1,0,1);
+
+
+  select a.no, a.title, a.contents, date_format(a.write_date, '%Y-%m-%d %h:%i:%s'),
+			 a.hit,a.g_no, a.o_no, a.depth, a.user_no, b.name
+    from board a, user b 
+   where a.user_no = b.no
+order by a.g_no desc, a.o_no asc;
+
+
+  select a.no, a.title, a.contents, date_format(a.write_date, '%Y-%m-%d %h:%i:%s'),
+			 a.hit,a.g_no, a.o_no, a.depth, a.user_no, b.name
+    from board a, user b 
+   where a.user_no = b.no
+	 and a.no = 1;
+     
+ update board set hit= hit+1 where no=1;
+
+ update board set title='하잉', contents='내용바꿈요' where no=1;
+ 
+ update board 
+	set o_no= o_no+1 
+  where g_no=?  
+	and o_no=?;
+    
+    delete from board where g_no=6;
