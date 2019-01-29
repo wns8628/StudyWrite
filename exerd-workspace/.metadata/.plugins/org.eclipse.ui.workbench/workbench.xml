@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="16" version="2.0">
 <workbenchAdvisor/>
-<window height="787" width="1210" x="346" y="162">
+<window height="908" width="1588" x="62" y="321">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -60,6 +60,9 @@
 <expanded>
 <element path="/webdb"/>
 </expanded>
+<selection>
+<element path="/webdb/webdb_mysite2board.exerd"/>
+</selection>
 </viewState>
 </view>
 <view id="com.tomato.exerd.ui.views.thumbnail" partName="썸네일">

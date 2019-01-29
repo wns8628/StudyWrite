@@ -128,7 +128,8 @@ insert into board
   select a.no, a.title, a.contents, date_format(a.write_date, '%Y-%m-%d %h:%i:%s'),
 			 a.hit,a.g_no, a.o_no, a.depth, a.user_no, b.name
     from board a, user b 
-   where a.user_no = b.no
+   where a.user_no = b.no 
+     and (a.title like '%%' or a.contents like '%%' or b.name like '%%')
 order by a.g_no desc, a.o_no asc;
 
 
@@ -138,7 +139,7 @@ order by a.g_no desc, a.o_no asc;
    where a.user_no = b.no
 	 and a.no = 1;
      
- update board set hit= hit+1 where no=1;
+ update board set hit= hit+1 where no=2;
 
  update board set title='하잉', contents='내용바꿈요' where no=1;
  
@@ -148,3 +149,26 @@ order by a.g_no desc, a.o_no asc;
 	and o_no=?;
     
     delete from board where g_no=6;
+    
+select *from board;
+
+-- 게시글 43번에 달자 
+select * from comment;
+
+-- 게시글에 맞는 댓글리스트 다가져오기 
+select a.no, a.contents, a.write_date, a.board_no, a.user_no, a.name, a.password 
+ from comment a , board b 
+where a.board_no = b.no
+  and b.no = 43;
+  
+-- 댓글수정시  
+select a.no, a.contents, a.write_date, a.board_no, a.user_no, a.name, a.password 
+ from comment a , board b 
+where a.board_no = b.no
+  and a.no = 1;
+
+
+insert into comment 
+     values(null,'댓글테스트123', now(), 41, null, '테스트아디', 123);
+
+
