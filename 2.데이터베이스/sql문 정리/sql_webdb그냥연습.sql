@@ -117,7 +117,7 @@ select name,email from user where no=1;
 -- -----------------------------------------------------------------------------------------------------
 
 
-select * from board;
+(select count(*) from board);
 																-- 조,그,오,뎁,유
 insert into board values(null,'1번글입니다. 하잉', '내용1이당~', now(),  0, 1,1,0,1);
 insert into board values(null,'2번글입니다. 하잉2', '내용2이당~', now(), 0, 2,1,0,1);
@@ -126,12 +126,18 @@ insert into board
 
 
   select a.no, a.title, a.contents, date_format(a.write_date, '%Y-%m-%d %h:%i:%s'),
-			 a.hit,a.g_no, a.o_no, a.depth, a.user_no, b.name
+			 a.hit,a.g_no, a.o_no, a.depth, a.user_no, b.name, (select count(*)
+													       	      from comment c , board d 
+																 where c.board_no = d.no
+																   and d.no = a.no) as commentcount
     from board a, user b 
-   where a.user_no = b.no 
+   where a.user_no = b.no
      and (a.title like '%%' or a.contents like '%%' or b.name like '%%')
-order by a.g_no desc, a.o_no asc;
+order by a.g_no desc, a.o_no asc limit 0,5;
 
+--
+
+--
 
   select a.no, a.title, a.contents, date_format(a.write_date, '%Y-%m-%d %h:%i:%s'),
 			 a.hit,a.g_no, a.o_no, a.depth, a.user_no, b.name
@@ -156,7 +162,14 @@ select *from board;
 select * from comment;
 
 -- 게시글에 맞는 댓글리스트 다가져오기 
-select a.no, a.contents, a.write_date, a.board_no, a.user_no, a.name, a.password 
+select a.no, a.contents, a.write_date, a.board_no, a.user_no, a.name, a.password , a.g_no, a.o_no, a.depth
+ from comment a , board b 
+where a.board_no = b.no
+  and b.no = 43
+order by a.g_no desc, a.o_no asc;
+
+-- 게시글에 맞는 댓글개수 
+select count(*)
  from comment a , board b 
 where a.board_no = b.no
   and b.no = 43;
@@ -167,8 +180,29 @@ select a.no, a.contents, a.write_date, a.board_no, a.user_no, a.name, a.password
 where a.board_no = b.no
   and a.no = 1;
 
+delete from comment;
 
-insert into comment 
-     values(null,'댓글테스트123', now(), 41, null, '테스트아디', 123);
+insert into comment
+	 values(null,'댓글테스트123', now(), 43, null, '테스트아디', 123,1,1,0);
 
 
+desc comment;
+
+
+ALTER TABLE comment DROP FOREIGN KEY FK_board_TO_comment;
+
+ALTER TABLE comment ADD FOREIGN KEY (board_no) REFERENCES  board.no ON DELETE CASCADE;
+
+ALTER TABLE comment
+	ADD CONSTRAINT FK_board_TO_comment -- 게시판 -> 댓글
+		FOREIGN KEY (
+			board_no -- 게시판번호
+		)
+		REFERENCES board( -- 게시판
+			no -- 번호
+		)  ON DELETE CASCADE;
+
+    -- foreign key(dept_no) references dept(no)
+     --  on delete cascade 
+
+desc comment;
