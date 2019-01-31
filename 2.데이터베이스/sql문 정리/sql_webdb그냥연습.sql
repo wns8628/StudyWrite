@@ -125,6 +125,7 @@ insert into board
 	 values(null,'3번글입니다. 하잉3', '내용3이당~', now(), 0, (select ifnull(max(g_no)+1, 1) from board a) ,1,0,1);
 
 
+-- 리스트뽑기
   select a.no, a.title, a.contents, date_format(a.write_date, '%Y-%m-%d %h:%i:%s'),
 			 a.hit,a.g_no, a.o_no, a.depth, a.user_no, b.name, (select count(*)
 													       	      from comment c , board d 
@@ -132,10 +133,14 @@ insert into board
 																   and d.no = a.no) as commentcount
     from board a, user b 
    where a.user_no = b.no
-     and (a.title like '%%' or a.contents like '%%' or b.name like '%%')
+     and (a.title like '%╋%' or a.contents like '%╋%' or b.name like '%ㅁㄴㅇㅁㄴㅇ%')
 order by a.g_no desc, a.o_no asc limit 0,5;
 
 --
+  select count(*)
+    from board a, user b 
+   where a.user_no = b.no
+     and (a.title like '%%' or a.contents like '%%' or b.name like '%%');
 
 --
 
@@ -206,3 +211,5 @@ ALTER TABLE comment
      --  on delete cascade 
 
 desc comment;
+
+
