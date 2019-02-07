@@ -1,0 +1,27 @@
+1.https://jinbroing.tistory.com/98
+2.https://github.com/nhnent/fe.javascript/wiki/June-13-June-17,-2016
+
+*테스크큐 추가 함수 : 웹API영역 함수, 이벤트핸들러(콜백함수)
+---------------------------------------------------------------------------
+ 간단요약
+
+  브라우저구조 ( Run Time )
+    1) JS Engine [ Heap ],[ Call Stack ]
+    2) Web APIs (DOM Events, AJAX, Timer ....등등) 백그라운드?
+    3) Event Loop 
+    4) Task Queue 
+
+  JS엔진 - 싱글스레드! 단일스택임  
+    그면 스택에 쌓이는 함수의 특정작업이 시간이오래걸리면? 브라우저멈춤? 
+  
+  event loop가 해결해줌 
+      -  queue의 첫번째 작업을 Stack이 비워져있으면 Stack으로 작업을보냄
+
+
+                        ┏콜백함수
+ ex) setTimeout( run(), 3초 ) 있다치자 
+                   
+  1) 스택에 setTimeout 함수올라감 
+  2) 바로 스택에서 지워지면서 타이머(3초), run() 을 백그라운드영역으로 보냄
+  3) 3초뒤에 run()을 Task Queue로 보냄 
+  4) event loop가 스택보고 올리겠지 

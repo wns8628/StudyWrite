@@ -133,10 +133,13 @@ insert into board
 																   and d.no = a.no) as commentcount
     from board a, user b 
    where a.user_no = b.no
-     and (a.title like '%╋%' or a.contents like '%╋%' or b.name like '%ㅁㄴㅇㅁㄴㅇ%')
+     and (a.title like '%%' or a.contents like '%%' or b.name like '%%')
 order by a.g_no desc, a.o_no asc limit 0,5;
 
 --
+
+
+
   select count(*)
     from board a, user b 
    where a.user_no = b.no
