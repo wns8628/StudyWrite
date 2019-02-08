@@ -1,6 +1,6 @@
 ECMAScript
  
- date
+ date(함수다타입이아니라?)
  boolean 
  number  
  string    
@@ -115,7 +115,7 @@ o2.age= 20;
 3.객체(오브젝트 타입) 생성방법
 //JSON = JavaScriptObjectNotation
 var o3 = {
-	name:"뚜치",
+	name:"뚜치",  //구문이아님= 실행되는라인이아니니깐 : 를쓴다.
 	age:20
 };
 

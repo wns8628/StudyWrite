@@ -1,0 +1,52 @@
+모든함수는 프로토타입(기본형)을 가진다.
+
+------------------------------------------------
+var MyObject = function(name,age){
+	this.name= name;
+	this.age = age;
+}
+var o4 = new MyObject("도우넛",13);
+
+	↓ 뜯어보면
+ 
+ MyObject → [ code | prototype ]
+ 	        ↑		↘
+                     ↖←←← [ constructor |  ]      //prototype
+            
+o4 
+       ↘
+    new를하면 { name  | age  }  
+	          ↓       ↓
+	        {둘리}   {10}
+                    이렇게 객체가만들어지고 
+	        constructor -> code 코드가실행 
+ 
+------------
+MyObject.prototype.school = "bit academy";
+MyObject.prototype.course = "Java Full Stack";
+이렇게 프로토타입추가하면
+ 
+ MyObject → [ code | prototype ]
+ 	        ↑		↘
+                     ↖←←← [ constructor | school |  course  ]      //prototype
+				      ↓         ↓
+			       {bit academy}{Java Full Stack}			
+
+	                                                 추가됨 
+------
+o4 
+       ↘
+     { name  | age  }  
+
+ o4에는 school이없지만 o4.school이 가능함 프로토타입에있기때문
+
+
+-결론-
+
+생성함수기반으로 생긴 객체는 모두 프로토타입객체를 공유해서 쓴다.
+				(객체에 없을경우)
+있으면 당연히 자기걸 쓴다. 
+
+
+
+-------------------------------------------------	
