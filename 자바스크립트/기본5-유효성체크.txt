@@ -1,0 +1,11 @@
+form validation(폼 유효성 체크)
+ 
+ 1) client: JavaScript 
+ 2) server: Servlet(Controller) 
+ 
+ *양쪽 다 반드시 해주어야 한다. 왜?
+
+ 용도가 다르다. 
+
+ client: JavaScript  => UX를위해 쓴다. (사용자 편의를 위해)
+ server: Servlet(Controller) => 보안(정보 보호) (장난질치는놈들떄문) 
