@@ -32,4 +32,10 @@ ex)
 	  ...
           커스텀api  ←이걸 플러그인 이라함
 
+---------------------
 
+ 이벤트핸들러안에서 this는 htmlelement객체임 - 즉 jquery api쓸려면 $() 래핑을 해야겠죠? $(this)
+
+ ----------
+
+ 디자인은 퍼블리셔가하는거다.  * addClass , removeClass

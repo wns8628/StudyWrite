@@ -1,0 +1,65 @@
+
+                 요청
+클라이언트 --------> 서버
+	  <-------
+
+기본 Blocking
+  서버에서 처리가끝나면 응답
+  즉 받을때까지 클라는 블락킹된다.(암것도못하고 기다림)
+
+nonBlocking
+ 요청보내고 클라이언트는 내 할일 한다.
+
+-----------------
+
+    S   .. . . . . . . . . ...... . . .응답 	
+    |     		        	 |
+       ↑(req,콜백함수)	 ↓(res)
+   C 요청		           <req할때 달아놓은 콜백실행됨>
+
+리퀘스트에 함수를달아놓지= 콜백함수 : 응답처리를위한함수 
+
+* ajax = 응답할때 xml로 응답한다. 근데 json으로해도 상관없음
+
+-----------------
+    $.ajax 
+       ↑
+    XMLHTTPrequest //이걸만들어서써야함 근데 jquery에 ajax함수를쓰면(내부에서 XMLHTTPrequest 이걸 다뤄준다. )
+		   //jquery없이 바닐라로하면 XMLHTTPrequest 이걸직접쓰면됨
+
+    js Engine이  XMLHTTPrequest 를 사용해서 통신함.    
+
+------------------------------------------------------------
+
+   기본      C  ---------> S    // url로 요청시
+	     <---------      // 페이지를 응답해준다.(HTML)
+
+
+   ajax       C( XMLHTTPrequest ) ----------> S  //요청시 
+	      XMLHTTPrequest  <----------     //응답(XML, JSON 등등으로)		                       
+
+ 서블릿입장에선 그요청이 그요청이다. 그래서 요청할때 잘 구분해서보내야함 ajax받는 서블릿을 정의해 놔야함  
+ *응답할때 vo를 json으로 바꾸기= 라이브러리써
+
+-----------------------
+ *load 도 마찬가지로 통신해서가져옴  
+    $( ).load  :  xml이나 json이 아니라  걍 html 이랑 텍스트문서로 받을거있으면 load로 처리해주면됨
+  
+--------------------------------
+
+$.ajax({
+	async: true,                             //async유무
+	url : "/mysite2/ajax2",	       //url
+	type: "get",	   	       //get or post
+	dataType: "json",	  	       //수신데이터 타입 
+	data: "",			       //post방식으로 데이터를 보낼 때 QueryString  ex) name=kickscar&no=10
+	//contentType: 'application/json',  //데이터를 Query String 이아닌 JSON 형식으로 보낼 때  ex) { "name":"kickscar" }
+	success: function(response){        //콜백함수임 
+		console.log(response);
+	},
+	error: function( xhr, status, e ){
+		console.error( status + " : " + e );
+	}
+});
+
+
