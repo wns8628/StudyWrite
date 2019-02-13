@@ -216,3 +216,18 @@ ALTER TABLE comment
 desc comment;
 
 
+
+
+
+
+
+select * from user;
+
+
+
+select no,name,email,gender, join_date 
+  from user  
+ where email = "123";
+
+
+
