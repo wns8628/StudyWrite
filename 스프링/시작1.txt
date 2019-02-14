@@ -1,0 +1,136 @@
+메이븐프로젝트( src/main/java )
+
+ 개발할때는 인터넷이 있어야한다. 
+
+1) 라이브러리 관리 
+-----------------------------
+
+ maven : 자바로만든 프로그램
+  
+ /hellospring 
+     | 
+     |---------src                   
+     |	      |-main	 } 소스폴더
+     | 	      |    |-java
+     |	      |        |- com
+     |	      |	      |- douzone	
+     |	      |		|- hellospring
+     |	      |		       |- /controller
+     |	      |		       |- /service
+     |	      |		       |- /repository
+     |	      |		       	  |-UserDao.java
+     |	      |			  |-BoardDao.java 
+     |	      |-Libraries     					->실제 webapps밑에 lib에 라이브러리있어야함 maven이클립스는 알아서해줌?
+     |	      |  					 	   프로젝트 프로퍼티에서 디펜던시안해도 이미해줬자나 알아서 
+     |	      |
+     |	      |-- test
+     |     		|-java      } J-유닛으로 테스트할때    : 테스트용으로 만들어놔라 ㅇㅋ?
+     |		  |-com.....쭉복사해서테스트/..	
+     |
+     |-pom.xml //maven치면 이거보고 빌드부분읽어들어서 빌드한다. *중요 (프로젝트관련 정보가 있으니)
+     |
+     |-webapps             // 이 디렉토리를 .war 파일로만듬 즉 모든결과물은 여기밑에다있다.
+	|-web-INF
+	     |---------------------- classes
+	     |- lib	  		|-com
+	     |- web.xml		  | -douzone
+				 	|-hellospring		
+					     |- /controller		}- 컴파일시 이렇게됨 class파일로 소스폴더에서 복사됨
+ 					     |- /service
+ 		 			     |- /repository
+		       				  |-UserDao.class
+    						  |-BoardDao.class   
+
+								
+-----
+ *pom.xml : 1)빌드부분(war파일만들기),
+	    2) 라이브러리 의존성관계해결 
+		         리눅스에서는 pom.xml 에 maven쳐서 war파일로 만들어서 톰캣에 옮겨야하잔아! 
+		         그리고 라이브러리 간의 의존성관계관리해줌      
+
+
+----------
+
+2) web.xml 
+	
+  1.서블릿설정  
+	 스프링이 제공하는 디스패쳐 서블릿세팅해주고
+	 모든요청은 디스패쳐 서블릿이받도록세팅해주고. 
+	 
+
+			       개발자 컨트롤러		
+			    ↗
+      ---> { DispatcherServlet }  → 개발자 컨트롤러	
+	       분기시킴	    ↘ 
+			       개발자 컨트롤러	
+
+
+----------------------
+ 결론 :  돌아가는 순서 ?
+ 서블릿기술??? 빠짐? 알아서해줌?  
+
+
+톰캣을버릴순없다 
+
+
+   톰캣 
+
+
+ 최초요청때 일어남 init은 한번되니깐 !
+
+ex) - hellospring -  
+
+    1) 톰캣의 webapps 밑에 hellospring.war파일을 넣어둠
+    2) 톰캣실행!(서버키기 - 메모리 올라감) 
+    3) 올라가면서 hellospring.war를 풀고 그안의 web.xml을 읽어서 
+       메인서블릿(DispatchServlet)을 톰캣에 올린다. (web.xml에 어디있는지 위치지정해줬으니)
+    4) 처음올라갔으니 init이 실행된다. (라이프사이클)
+    5        	    
+
+             webxml읽고 디스패쳐서블릿만든다
+                    
+                 핸들러매핑하는객체를만듬- 스프링컨테이너안
+
+	     initparam을 가져와서  없으면 spring-"servlet.xml"뭐해서 만듬? 
+  
+                 서블릿 컨테이너 생성? 어플리케이션 컨텍스트 인터페이스 구현하고있다? 
+		
+	     servlet.xml을 받았으니 그거보고 bean객체만듬???
+
+	     request매핑?? 핸들러매핑보고?
+     
+                 viewResolve
+                    
+                 messageconverter 
+     
+    service()
+    doget(){}                
+	
+    1./hellospring/hello - 핸들러?보고 실행?
+    object o = {}.hello() //리턴하는게 다양할수있다.
+    2.[]???
+ 
+init : 
+			      매핑 
+핸들러매핑영역(스프링mvc객체)  		        ↑
+ url /  name / parame / controller ---> bean컨트롤러 
+bean객체의 어노테이션 스캔함 ? 리퀘스트 매핑되어있는 메소드 찾기 
+
+
+..>>
+어노테이션이 리스폰스바디가 붙어있으면 뷰리절브한테 안던지고
+ 메세지컨버터한테 던짐 =객체면 json으로 보여주고 스트링이면 메세지그냥보여주고
+  
+view Resolve??(스프링mvc객체) 
+ 
+
+
+-----------
+ 비즈니스객체랑 분리? 컨트롤러?
+
+ 컨텍스트리더?리스너는뭐냐
+
+
+
+
+
