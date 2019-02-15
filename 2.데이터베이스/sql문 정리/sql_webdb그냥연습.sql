@@ -230,4 +230,23 @@ select no,name,email,gender, join_date
  where email = "123";
 
 
+delete from guestbook where no=192 and password = password(444);
 
+
+-- ---------------------------------------
+
+select * from guestbook;
+
+delete from guestbook where name="";
+delete from guestbook;
+
+insert into guestbook
+      values(null,'김세준2',password('1234'),'안녕10', now());
+ 
+ 
+    select no , name, password, message, date_format(reg_date, '%Y-%m-%d %h:%i:%s')
+	  from guestbook 
+  order by reg_date desc limit 0, 5;  -- (page-1)*5
+  
+  
+select last_insert_id();  
