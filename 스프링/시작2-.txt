@@ -1,0 +1,63 @@
+@annotation
+	-클래스
+	-필드
+	-메소드
+	-메소드 파라미터
+	등등 거의 모든곳에 다 붙을수있다.
+
+---중요한 어노테이션  
+1) @RequestMapping 
+2) @RequestParam
+3) @PathVariable
+4) @ModelAttribute
+5) @Autowired
+--------------------------------------
+1. @RequestMapping   //url매핑해줌
+	- 메소드단독 
+	- 클래스단독
+	- 클래스+메소드
+
+2. @RequestParam    // http 요청 파라미터를 메소드 파라미터에 넣어주는 어노테이션
+		      @RequestParam(value="no", required=true, defaultValue="0" )Long no //이렇게씀 대부분
+		
+3. @PathVariable //URL에 쿼리 스트링 대신 URL 패스로 풀어 쓰는 방식
+	          예) /board/view?no=10  -> /board/view/10
+
+4. @ModelAttribute //요청 파라미터를 객체에 담을 때 사용
+
+
+5. @Autowired // 웹어플컨텍스트에없으면 루트컨텍스트에 찾아가서 가져와서 DI해줌!
+-------------------------
+
+fillter  <->  인터셉터??
+
+서블릿에가기전? 필터를거치는데
+스프링에서도 fillter를 쓸수있다. webxml에 등록하면됨 -encoding 같은거처리할떄쓴다.
+
+---------------------------
+스프링 컨테이너 
+
+ 웹 어플리케이션 컨텍스트(컨테이너) - 웹 mvc관련 bean
+		         - web.xml 서블릿 매핑 설정의 <servlet-name>에 ‘-servlet.xml’ 를 붙힌 이름의 파일을 WEB-INF에서 찾아 컨테이너에    
+  		           Bean을 생성하고 초기화 한다.
+		           즉 웹 어플리케이션 컨텍스트가 spring-servlet.xml읽고 Bean생성함		           
+		           그리고  spring-servlet.xml에 스캐닝을 설정해놨으니 어노테이션기반으로 스캐닝해서 핸들러매핑등록함(메소드하나?)	
+		
+ 루트어플리케이션 컨텍스트(컨테이너) - 비즈니스관련 bean? 기술관련?
+		           - 톰캣이 실행될때 web.xml에 리스너를 등록해주면 루트어플리케이션 컨텍스트가 생성됨
+			 설정파일(.xml)은 디폴트로  /WEB-INF/applicationContext.xml 이다. 
+			 루트어플리케이션 컨텍스트가 applicationContext.xml 이걸읽고 bean 생성한다.
+		*서비스 계층, 데이터 액세스 계층을 포함해서 웹 환경과 직접 관련이 없는 모든 빈은 여기에 등록한다.
+
+	
+ applicationContext.xml = 루트어플리케이션 컨텍스트가 스캔하면서만듬 
+		         톰캣이실행할떄 일어나니깐 미리 bean을 만들어놓는것이다. 
+		         스캐닝설정하고 어노테이션설정해서 설정한어노테이션에 맞는 것들을 객체로만들어서 다 올려놓는다.
+
+  
+
+
+
+
+
+

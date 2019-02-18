@@ -80,30 +80,50 @@
 
 ex) - hellospring -  
 
-    1) 톰캣의 webapps 밑에 hellospring.war파일을 넣어둠
+    1) 톰캣의 webapps 밑에 hellospring.war파일을 넣어둠 - !war인지 아닌지 확실히 모름 
     2) 톰캣실행!(서버키기 - 메모리 올라감) 
     3) 올라가면서 hellospring.war를 풀고 그안의 web.xml을 읽어서 
        메인서블릿(DispatchServlet)을 톰캣에 올린다. (web.xml에 어디있는지 위치지정해줬으니)
-    4) 처음올라갔으니 init이 실행된다. (라이프사이클)
-    5        	    
 
-             webxml읽고 디스패쳐서블릿만든다
-                    
-                 핸들러매핑하는객체를만듬- 스프링컨테이너안
-
-	     initparam을 가져와서  없으면 spring-"servlet.xml"뭐해서 만듬? 
-  
-                 서블릿 컨테이너 생성? 어플리케이션 컨텍스트 인터페이스 구현하고있다? 
-		
-	     servlet.xml을 받았으니 그거보고 bean객체만듬???
-
-	     request매핑?? 핸들러매핑보고?
-     
-                 viewResolve
-                    
-                 messageconverter 
-     
-    service()
+    클라이언트(브라우저)에서 접속
+	↓
+    4) 처음올라갔으니 init이 실행된다. (라이프사이클) (많을일을하지만 중요한것만 알아둬라)
+    5) init이 실행되면서 스프링컨테이너가 만들어짐(객체라서 new로만듬) 그때 xml파일(path)을 인자로넣어줌 
+    6) xml파일은 디스패치서블릿 init안에서 xml파일을 찾아서 컨테이너 인자로 넣어줘야하는데 
+    7) web.xml에 경로(param?)설정을 해놨으면 그걸읽어서 인자로넣어줌 
+    8) 안적어놨으면 spring-servlet.xml을 인자로넣어줌(기본)     
+    6) 컨테이너는 생성될때 인자로받은 경로에있는 xml파일을 스캔을하고 컨테이너에 bean객체 만듬      	    
+    7) 컨테이너가 spring-servlet.xml을 스캔하니깐 spring-servlet.xml을 잘적어야한다. - 이노테이션잘스캔해라이런것도!
+    8) 그리고 bean만들어지고 init할때 또 Handler Mapping이라는 객체를만든다. [컨테이너안에만듬-당연한얘기임]:spring-mvc객체 			
+    9) Handler Mapping은 URL매핑을해준다. ex) 우리가한Action들이 핸들러임 : 클래스단위=하나당하나의액션만맡으니. 
+   10) Handler Mapping은 메소드단위이다.(여러개가능)
+   11) 디스패처 서블릿 init에서 Handler Mapping에 컨테이너를 던져줌(컨테이너에 매핑정보가 다있으니)
+   12) 핸들러매핑이 받아서 bean객체들의 메소드를 스캐닝한다. 
+   13) url, bean, 이름, 컨트롤러 레퍼런스값?,파라미터정보 뭐 매핑해놓겠지 
+					      →객체도올수있다. ex) UserVo vo
+   14) init에서 view resolve 만듬         -  spring-servlet.xml 에 생성하라는 설정안해도 기본으로 생성됨
+   15) init에서 message converter 만듬 -  spring-servlet.xml 에 생성하라는 설정안해도 기본으로 생성됨
+   16) 더일을하겠지만 init끝!  
+   17) service실행!
+   ( doget(request,response) )
+   18) doget에서 url로 Handler Mapping접근 - 매핑되어있는 bean의 메소드실행됨!
+	          →(bean안에 @Requestmapping 어노테이션이있으니)
+   19) 메소드는 리턴타입을가짐(@Requestbody가 붙어있는 bean이면 message converter가 받음) 
+        응답을 내가하겠다라는???
+   20) 리턴타입이 string이면 ViewName으로한다. -  view resolve가 받아서 처리 ? 
+   21) 리턴타입이 text()
+   22) 리턴타입이 뭐시기면 .. 등등 리턴타입이 많지만 다 객체이다. (model and view일수도)
+   
+   23) dopost?   
+   
+!) @어노테이션 = 코드가아니라 그냥 text임(표시다. 그이상그이하도아님 )  javaEE에 매이면안됨
+!)  *클라이언트의 request 는 bean까지이어진다.
+!) 스프링은기술에서(javaEE)분리됨,컨텍스트패쓰모름 
+  스프링에서는 컨텍스트패스빼고잡아줘야함 javaEE기술에서분리됐으니?
+!) 컨텍스트패스는 javaEE쪽 /~~ 그이후는 spring쪽 즉 분리되어있다. 그래서 어노테이션도
+  스프링에 톰캣 어노테이션을 안쓰게함 @WebServlet("") 이런거
+------------------------------
+정리안됨
     doget(){}                
 	
     1./hellospring/hello - 핸들러?보고 실행?
@@ -114,21 +134,37 @@ init :
 			      매핑 
 핸들러매핑영역(스프링mvc객체)  		        ↑
  url /  name / parame / controller ---> bean컨트롤러 
-bean객체의 어노테이션 스캔함 ? 리퀘스트 매핑되어있는 메소드 찾기 
-
+bean객체의 어노테이션 스캔함 ? 리퀘스트 매핑되어있는 메소드 찾기
 
 ..>>
 어노테이션이 리스폰스바디가 붙어있으면 뷰리절브한테 안던지고
  메세지컨버터한테 던짐 =객체면 json으로 보여주고 스트링이면 메세지그냥보여주고
   
 view Resolve??(스프링mvc객체) 
- 
+ ----------------------------------------
 
 
 -----------
  비즈니스객체랑 분리? 컨트롤러?
 
  컨텍스트리더?리스너는뭐냐
+
+
+----------------------------------------------------------------------------------------------------------
+
+ 메이븐정리랑 좀더정리 리턴메세지컨버터 랑좀더 정리!
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
