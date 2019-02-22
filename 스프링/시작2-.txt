@@ -43,6 +43,8 @@ fillter  <->  인터셉터??
 		           즉 웹 어플리케이션 컨텍스트가 spring-servlet.xml읽고 Bean생성함		           
 		           그리고  spring-servlet.xml에 스캐닝을 설정해놨으니 어노테이션기반으로 스캐닝해서 핸들러매핑등록함(메소드하나?)	
 		
+			컨트롤러,뷰리졸브,메세지컨버터,핸들러매핑 등 mvc bean들도위치함			
+
  루트어플리케이션 컨텍스트(컨테이너) - 비즈니스관련 bean? 기술관련?
 		           - 톰캣이 실행될때 web.xml에 리스너를 등록해주면 루트어플리케이션 컨텍스트가 생성됨
 			 설정파일(.xml)은 디폴트로  /WEB-INF/applicationContext.xml 이다. 

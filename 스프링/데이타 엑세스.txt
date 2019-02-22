@@ -1,0 +1,37 @@
+각DAO는 원래 각각 커넥션을 가지고있었다. = 커넥션하는데 시간다씀 
+
+ bean = datasource < 어플리케이션컨테이너안에있다.
+	[커넥션 풀]
+
+ 커넥션풀사용해서 DAO들이 레퍼런싱하도록  
+	<!-- Connection Pool DataSource-->등록
+
+
+
+2./sql="update user set name=?, gender=? where no=?";
+				
+        이런코드 쓰면 관리가어렵다. = 템플릿사용 
+
+ *템플릿/콜백 패턴을 이용해 반복되는 판에 박힌 
+  코드를 피하고  예외 변환과 트랜잭션 동기화를 위한 템플릿을 제공한다. 
+
+sql session{ //여기서 쿼리때림 
+ datasource ds;    //@Autowired 없지 스프링어노테이션이니깐 그래서 빈설정해야함
+ inset(){
+
+ }
+}
+
+jdbc는 마이바티스소스안에있는것이다. 그래서 주입만받아서하면됨
+즉 DAO에서는 jdbc소스를 모름
+
+ JPA=> 하이버네이트 = (ORM)
+ JDBC => mybatis = sql object 매핑 (orm되긴되는데 안씀)
+		      (파라미터)
+		 result object mapping
+		         (결과)
+
+
+
+
+<!-- MyBatis SqlSessionFactoryBean 여기안에 Datasource있고 setDatasource하겟지 세터있어야됨-->  

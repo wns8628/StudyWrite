@@ -230,7 +230,7 @@ select no,name,email,gender, join_date
  where email = "123";
 
 
-delete from guestbook where no=192 and password = password(444);
+delete from guestbook where no=444;
 
 
 -- ---------------------------------------
@@ -250,3 +250,4 @@ insert into guestbook
   
   
 select last_insert_id();  
+
