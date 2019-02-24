@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mysqlfwd:ForwardConfigurationSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mysqlfwd="http://exerd.tomato.com/mysql/forward">
-  <configurations name="마지막으로 설정한 환경" delimitedIdentifier="Backtick( ` )" useSchemaPhysicalProperties="true" createView="true" dropView="true" createFunction="true" createProcedure="true" dropFunction="true" dropProcedure="true" createTrigger="true" dropTrigger="true" createTable="true" dropTable="true" useTablePhysicalProperties="true" addPrimaryKeyConstraint="true" addCheckConstraint="true" dropCheckConstraint="true" addForeignKeyConstraint="true" createForeignKeyIndex="true" dropForeignKeyConstraint="true" useConstraintPhysicalProperties="true" createUniqueIndex="true" dropUniqueIndex="true" createNonUniqueIndex="true" dropNonUniqueIndex="true" useIndexPhysicalProperties="true" showLogicalNameToDescription="true"/>
+  <configurations name="마지막으로 설정한 환경" delimitedIdentifier="Backtick( ` )" createView="true" dropView="true" createTrigger="true" dropTrigger="true" createTable="true" dropTable="true" addPrimaryKeyConstraint="true" addCheckConstraint="true" dropCheckConstraint="true" addForeignKeyConstraint="true" createForeignKeyIndex="true" dropForeignKeyConstraint="true" createUniqueIndex="true" dropUniqueIndex="true" createNonUniqueIndex="true" dropNonUniqueIndex="true" showLogicalNameToDescription="true">
+    <userDefineProperties>ALTERNATIVE_COMMENT</userDefineProperties>
+  </configurations>
   <configurations name="생성 (기본 설정)" useOwnerPrefix="true" delimitedIdentifier="Backtick( ` )" createView="true" createTrigger="true" createTable="true" addPrimaryKeyConstraint="true" addCheckConstraint="true" addForeignKeyConstraint="true" createForeignKeyIndex="true" createUniqueIndex="true" createNonUniqueIndex="true" showLogicalNameToDescription="true">
     <userDefineProperties>ALTERNATIVE_COMMENT</userDefineProperties>
   </configurations>

@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="17" version="2.0">
 <workbenchAdvisor/>
-<window height="1545" width="2427" x="42" y="287">
+<window height="499" width="859" x="616" y="112">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="115" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="99" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="com.tomato.devkit.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="69" y="22"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="53" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="53" y="22"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="146" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="114" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -26,12 +27,40 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="webdb_mysite2board.exerd" partName="webdb_mysite2board.exerd" title="webdb_mysite2board.exerd" tooltip="C:\duzon\StudyWrite\exerd-workspace\webdb_mysite2board.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/duzon/StudyWrite/exerd-workspace/webdb_mysite2board.exerd"/>
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="webdb_emaillist.exerd" partName="webdb_emaillist.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/webdb_emaillist.exerd" title="webdb_emaillist.exerd" tooltip="webdb/webdb_emaillist.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/webdb_emaillist.exerd"/>
+</editor>
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="mysite.exerd" partName="mysite.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/mysite.exerd" title="mysite.exerd" tooltip="webdb/mysite.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/mysite.exerd"/>
+</editor>
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="searchmusic.exerd" partName="searchmusic.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/searchmusic.exerd" title="searchmusic.exerd" tooltip="webdb/searchmusic.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/searchmusic.exerd"/>
+</editor>
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="webdb_guestbook.exerd" partName="webdb_guestbook.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/webdb_guestbook.exerd" title="webdb_guestbook.exerd" tooltip="webdb/webdb_guestbook.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/webdb_guestbook.exerd"/>
+</editor>
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="bookmall.exerd" partName="bookmall.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/bookmall.exerd" title="bookmall.exerd" tooltip="webdb/bookmall.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/bookmall.exerd"/>
+</editor>
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="hr.exerd" partName="hr.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/hr.exerd" title="hr.exerd" tooltip="webdb/hr.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/hr.exerd"/>
+</editor>
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="bookshop.exerd" partName="bookshop.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/bookshop.exerd" title="bookshop.exerd" tooltip="webdb/bookshop.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/bookshop.exerd"/>
+</editor>
+<editor focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="webdb_mysite2board.exerd" partName="webdb_mysite2board.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/webdb_mysite2board.exerd" title="webdb_mysite2board.exerd" tooltip="webdb/webdb_mysite2board.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/webdb_mysite2board.exerd"/>
 </editor>
 </editors>
 <views>
@@ -40,6 +69,12 @@
 <filters>
 <filter element=".*" isEnabled="false"/>
 </filters>
+<expanded>
+<element path="/webdb"/>
+</expanded>
+<selection>
+<element path="/webdb/webdb_mysite2board.exerd"/>
+</selection>
 </viewState>
 </view>
 <view id="com.tomato.exerd.ui.views.thumbnail" partName="썸네일">
@@ -60,7 +95,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="com.tomato.exerd.editor.DiagramEditor" activePerspective="com.tomato.exerd.perspective.design">
+<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="com.tomato.exerd.perspective.design">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.tomato.exerd.perspective.ExerdPerspectiveFactory" id="com.tomato.exerd.perspective.design" label="eXERD"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -105,7 +140,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@9803c2" ratio="0.74949497" ratioLeft="742" ratioRight="248" relationship="2" relative="leftFolder">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@52fb3e" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="leftFolder">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
@@ -113,8 +148,8 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.20770642" ratioLeft="566" ratioRight="2159" relationship="2" relative="leftFolder"/>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@13f3ba0" ratio="0.77955663" ratioLeft="633" ratioRight="179" relationship="2" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.20852162" ratioLeft="323" ratioRight="1226" relationship="2" relative="leftFolder"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@103bf3c" ratio="0.78586954" ratioLeft="723" ratioRight="197" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="com.tomato.exerd.ui.views.thumbnail" appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.thumbnail" label="썸네일"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -122,7 +157,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="rightFolder" ratio="0.24957556" ratioLeft="147" ratioRight="442" relationship="4" relative="org.eclipse.ui.internal.ViewStack@13f3ba0">
+<info folder="true" part="rightFolder" ratio="0.249226" ratioLeft="161" ratioRight="485" relationship="4" relative="org.eclipse.ui.internal.ViewStack@103bf3c">
 <folder activePageID="com.tomato.exerd.modelview3.ModelView3" appearance="2" expanded="2">
 <page content="com.tomato.exerd.modelview3.ModelView3" label="모델"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="아웃라인"/>
@@ -132,7 +167,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="bottomFolder" ratio="0.69949067" ratioLeft="412" ratioRight="177" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottomFolder" ratio="0.82043344" ratioLeft="530" ratioRight="116" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.domain" label="도메인"/>
 <page content="com.tomato.exerd.validate.ui.ValidateView" label="검토"/>
@@ -145,7 +180,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@cf5a97" ratio="0.29881155" ratioLeft="176" ratioRight="413" relationship="4" relative="leftFolder">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@82469c" ratio="0.45615983" ratioLeft="411" ratioRight="490" relationship="4" relative="leftFolder">
 <folder activePageID="org.eclipse.gef.ui.palette_view" appearance="2" expanded="2">
 <page content="org.eclipse.gef.ui.palette_view" label="Palette"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -160,9 +195,84 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/duzon/StudyWrite/exerd-workspace/webdb_mysite2board.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/bookmall.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BIT/Downloads/bookmall.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BIT/Downloads/bookmall.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BIT/Downloads/bookmall!.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BIT/Desktop/bookmall....exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/bookmall.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BIT/Desktop/bookmallsadasd.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/webdb.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/webdb_guestbook.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/webdb_emaillist.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/mysite.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/searchmusic.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/webdb_guestbook.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/webdb_emaillist.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/searchmusic.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/webdb_guestbook.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/bookmall.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/webdb_guestbook.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/bookmall.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/webdb_emaillist.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/searchmusic.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/hr.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/bookshop.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/webdb/.project"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/webdb_mysite2board.exerd"/>
 </editors>
-<item active="true" historyLabel="webdb_mysite2board.exerd" index="0"/>
+<item historyLabel="bookmall.exerd" index="0"/>
+<item historyLabel="bookmall.exerd" index="1"/>
+<item historyLabel="bookmall.exerd" index="0"/>
+<item historyLabel="bookmall.exerd" index="1"/>
+<item historyLabel="bookmall.exerd" index="0"/>
+<item historyLabel="bookmall.exerd" index="2"/>
+<item historyLabel="bookmall!.exerd" index="3"/>
+<item historyLabel="bookmall.exerd" index="2"/>
+<item historyLabel="bookmall....exerd" index="4"/>
+<item historyLabel="bookmall.exerd" index="2"/>
+<item historyLabel="bookmall.exerd" index="5"/>
+<item historyLabel="bookmallsadasd.exerd" index="6"/>
+<item historyLabel="bookmall.exerd" index="5"/>
+<item historyLabel="webdb.exerd" index="7"/>
+<item historyLabel="webdb_guestbook.exerd" index="8"/>
+<item historyLabel="webdb_emaillist.exerd" index="9"/>
+<item historyLabel="mysite.exerd" index="10"/>
+<item historyLabel="webdb_emaillist.exerd" index="9"/>
+<item historyLabel="mysite.exerd" index="10"/>
+<item historyLabel="webdb_emaillist.exerd" index="9"/>
+<item historyLabel="searchmusic.exerd" index="11"/>
+<item historyLabel="webdb_guestbook.exerd" index="12"/>
+<item historyLabel="searchmusic.exerd" index="11"/>
+<item historyLabel="mysite.exerd" index="10"/>
+<item historyLabel="webdb_emaillist.exerd" index="13"/>
+<item historyLabel="mysite.exerd" index="10"/>
+<item historyLabel="searchmusic.exerd" index="14"/>
+<item historyLabel="webdb_guestbook.exerd" index="15"/>
+<item historyLabel="searchmusic.exerd" index="14"/>
+<item historyLabel="bookmall.exerd" index="16"/>
+<item historyLabel="webdb_emaillist.exerd" index="13"/>
+<item historyLabel="webdb_guestbook.exerd" index="15"/>
+<item historyLabel="mysite.exerd" index="10"/>
+<item historyLabel="webdb_guestbook.exerd" index="17"/>
+<item historyLabel="bookmall.exerd" index="18"/>
+<item historyLabel="mysite.exerd" index="10"/>
+<item historyLabel="webdb_emaillist.exerd" index="19"/>
+<item historyLabel="searchmusic.exerd" index="20"/>
+<item historyLabel="mysite.exerd" index="10"/>
+<item historyLabel="hr.exerd" index="21"/>
+<item historyLabel="bookshop.exerd" index="22"/>
+<item historyLabel="bookmall.exerd" index="18"/>
+<item historyLabel="webdb_guestbook.exerd" index="17"/>
+<item historyLabel="webdb_emaillist.exerd" index="19"/>
+<item historyLabel="searchmusic.exerd" index="20"/>
+<item historyLabel="mysite.exerd" index="10"/>
+<item historyLabel="webdb_guestbook.exerd" index="17"/>
+<item historyLabel=".project" index="23">
+<position/>
+</item>
+<item historyLabel="webdb_guestbook.exerd" index="17"/>
+<item active="true" historyLabel="webdb_mysite2board.exerd" index="24"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -180,8 +290,44 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="webdb_mysite2board.exerd" tooltip="C:\duzon\StudyWrite\exerd-workspace\webdb_mysite2board.exerd">
-<persistable uri="file:/C:/duzon/StudyWrite/exerd-workspace/webdb_mysite2board.exerd"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="webdb_mysite2board.exerd" tooltip="webdb/webdb_mysite2board.exerd">
+<persistable path="/webdb/webdb_mysite2board.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name=".project" tooltip="webdb/.project">
+<persistable path="/webdb/.project"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="bookshop.exerd" tooltip="webdb/bookshop.exerd">
+<persistable path="/webdb/bookshop.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="hr.exerd" tooltip="webdb/hr.exerd">
+<persistable path="/webdb/hr.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="bookmall.exerd" tooltip="webdb/bookmall.exerd">
+<persistable path="/webdb/bookmall.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="webdb_guestbook.exerd" tooltip="webdb/webdb_guestbook.exerd">
+<persistable path="/webdb/webdb_guestbook.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="searchmusic.exerd" tooltip="webdb/searchmusic.exerd">
+<persistable path="/webdb/searchmusic.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="mysite.exerd" tooltip="webdb/mysite.exerd">
+<persistable path="/webdb/mysite.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="webdb.exerd" tooltip="webdb/webdb.exerd">
+<persistable path="/webdb/webdb.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="bookmallsadasd.exerd" tooltip="C:\Users\BIT\Desktop\bookmallsadasd.exerd">
+<persistable uri="file:/C:/Users/BIT/Desktop/bookmallsadasd.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="bookmall....exerd" tooltip="C:\Users\BIT\Desktop\bookmall....exerd">
+<persistable uri="file:/C:/Users/BIT/Desktop/bookmall....exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="bookmall2.exerd" tooltip="C:\Users\BIT\Desktop\bookmall2.exerd">
+<persistable uri="file:/C:/Users/BIT/Desktop/bookmall2.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="asadas.exerd" tooltip="webdb/asadas.exerd">
+<persistable path="/webdb/asadas.exerd"/>
 </file>
 </mruList>
 </workbench>
