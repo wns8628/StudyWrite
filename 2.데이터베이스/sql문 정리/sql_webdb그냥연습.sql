@@ -153,6 +153,14 @@ order by a.g_no desc, a.o_no asc limit 0,5;
    where a.user_no = b.no
 	 and a.no = 1;
      
+     select a.no, a.title, a.contents, date_format(a.write_date, '%Y-%m-%d %h:%i:%s'),
+			a.hit, a.g_no, a.o_no, a.depth, a.user_no, b.name 
+	   from board a, user b
+	  where a.user_no = b.no
+	    and a.no = 4;
+
+select * from board;
+     
  update board set hit= hit+1 where no=2;
 
  update board set title='하잉', contents='내용바꿈요' where no=1;
@@ -223,6 +231,8 @@ desc comment;
 
 select * from user;
 
+select * from board;
+
 
 
 select no,name,email,gender, join_date 
@@ -249,5 +259,6 @@ insert into guestbook
   order by reg_date desc limit 0, 5;  -- (page-1)*5
   
   
+select * from comment;
 select last_insert_id();  
 
