@@ -153,14 +153,6 @@ order by a.g_no desc, a.o_no asc limit 0,5;
    where a.user_no = b.no
 	 and a.no = 1;
      
-     select a.no, a.title, a.contents, date_format(a.write_date, '%Y-%m-%d %h:%i:%s'),
-			a.hit, a.g_no, a.o_no, a.depth, a.user_no, b.name 
-	   from board a, user b
-	  where a.user_no = b.no
-	    and a.no = 4;
-
-select * from board;
-     
  update board set hit= hit+1 where no=2;
 
  update board set title='하잉', contents='내용바꿈요' where no=1;
@@ -230,7 +222,6 @@ desc comment;
 
 
 select * from user;
-
 select * from board;
 
 
@@ -259,6 +250,26 @@ insert into guestbook
   order by reg_date desc limit 0, 5;  -- (page-1)*5
   
   
-select * from comment;
 select last_insert_id();  
+
+------------------------------------------
+
+ select title,welcome,profile,description from site;
+ 
+ insert into site values('MySite','안녕하세요 김세준의 mysite에 오신것을 환영합니다.','/assets/images/peko.jpg',
+						 '이 사이트는 웹 프로그램밍 실습과제 예제 사이트입니다.
+						 메뉴는 사이트 소개, 방명록, 게시판이 있구요. Python 수업 + 데이터베이스 수업 + 웹프로그래밍 수업 배운 거 있는거 없는 거 다 합쳐서 만들어 놓은 사이트 입니다.
+						 방명록에 글 남기기'	);
+
+
+delete from site;
+
+update site set title=?, welcome=? ,profile=? ,description=?;
+
+
+insert into user values(null, '마스터','wns8628@naver.com','zx8277898','male',now(), 'ADMIN');
+
+
+
+
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="17" version="2.0">
+<workbench progressCount="16" version="2.0">
 <workbenchAdvisor/>
-<window height="499" width="859" x="616" y="112">
+<window height="863" maximized="true" width="1093" x="499" y="115">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -59,7 +59,7 @@
 <editor id="com.tomato.exerd.editor.DiagramEditor" name="bookshop.exerd" partName="bookshop.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/bookshop.exerd" title="bookshop.exerd" tooltip="webdb/bookshop.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/bookshop.exerd"/>
 </editor>
-<editor focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="webdb_mysite2board.exerd" partName="webdb_mysite2board.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/webdb_mysite2board.exerd" title="webdb_mysite2board.exerd" tooltip="webdb/webdb_mysite2board.exerd" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="webdb_mysite2board.exerd" partName="webdb_mysite2board.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/webdb_mysite2board.exerd" title="webdb_mysite2board.exerd" tooltip="webdb/webdb_mysite2board.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/webdb_mysite2board.exerd"/>
 </editor>
 </editors>
@@ -95,7 +95,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="com.tomato.exerd.perspective.design">
+<perspectives activePart="com.tomato.exerd.editor.DiagramEditor" activePerspective="com.tomato.exerd.perspective.design">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.tomato.exerd.perspective.ExerdPerspectiveFactory" id="com.tomato.exerd.perspective.design" label="eXERD"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -197,7 +197,6 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/bookmall.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BIT/Downloads/bookmall.exerd"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BIT/Downloads/bookmall.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BIT/Downloads/bookmall!.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BIT/Desktop/bookmall....exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/bookmall.exerd"/>
@@ -220,59 +219,61 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/bookshop.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/webdb/.project"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/webdb_mysite2board.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/webdb/webdb_emaillist.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BIT/Downloads/webdb_mysite2board123123.exerd"/>
 </editors>
 <item historyLabel="bookmall.exerd" index="0"/>
 <item historyLabel="bookmall.exerd" index="1"/>
-<item historyLabel="bookmall.exerd" index="0"/>
+<item historyLabel="bookmall!.exerd" index="2"/>
 <item historyLabel="bookmall.exerd" index="1"/>
-<item historyLabel="bookmall.exerd" index="0"/>
-<item historyLabel="bookmall.exerd" index="2"/>
-<item historyLabel="bookmall!.exerd" index="3"/>
-<item historyLabel="bookmall.exerd" index="2"/>
-<item historyLabel="bookmall....exerd" index="4"/>
-<item historyLabel="bookmall.exerd" index="2"/>
-<item historyLabel="bookmall.exerd" index="5"/>
-<item historyLabel="bookmallsadasd.exerd" index="6"/>
-<item historyLabel="bookmall.exerd" index="5"/>
-<item historyLabel="webdb.exerd" index="7"/>
-<item historyLabel="webdb_guestbook.exerd" index="8"/>
-<item historyLabel="webdb_emaillist.exerd" index="9"/>
-<item historyLabel="mysite.exerd" index="10"/>
-<item historyLabel="webdb_emaillist.exerd" index="9"/>
-<item historyLabel="mysite.exerd" index="10"/>
-<item historyLabel="webdb_emaillist.exerd" index="9"/>
-<item historyLabel="searchmusic.exerd" index="11"/>
-<item historyLabel="webdb_guestbook.exerd" index="12"/>
-<item historyLabel="searchmusic.exerd" index="11"/>
-<item historyLabel="mysite.exerd" index="10"/>
-<item historyLabel="webdb_emaillist.exerd" index="13"/>
-<item historyLabel="mysite.exerd" index="10"/>
-<item historyLabel="searchmusic.exerd" index="14"/>
-<item historyLabel="webdb_guestbook.exerd" index="15"/>
-<item historyLabel="searchmusic.exerd" index="14"/>
-<item historyLabel="bookmall.exerd" index="16"/>
-<item historyLabel="webdb_emaillist.exerd" index="13"/>
-<item historyLabel="webdb_guestbook.exerd" index="15"/>
-<item historyLabel="mysite.exerd" index="10"/>
-<item historyLabel="webdb_guestbook.exerd" index="17"/>
-<item historyLabel="bookmall.exerd" index="18"/>
-<item historyLabel="mysite.exerd" index="10"/>
-<item historyLabel="webdb_emaillist.exerd" index="19"/>
-<item historyLabel="searchmusic.exerd" index="20"/>
-<item historyLabel="mysite.exerd" index="10"/>
-<item historyLabel="hr.exerd" index="21"/>
-<item historyLabel="bookshop.exerd" index="22"/>
-<item historyLabel="bookmall.exerd" index="18"/>
-<item historyLabel="webdb_guestbook.exerd" index="17"/>
-<item historyLabel="webdb_emaillist.exerd" index="19"/>
-<item historyLabel="searchmusic.exerd" index="20"/>
-<item historyLabel="mysite.exerd" index="10"/>
-<item historyLabel="webdb_guestbook.exerd" index="17"/>
-<item historyLabel=".project" index="23">
+<item historyLabel="bookmall....exerd" index="3"/>
+<item historyLabel="bookmall.exerd" index="1"/>
+<item historyLabel="bookmall.exerd" index="4"/>
+<item historyLabel="bookmallsadasd.exerd" index="5"/>
+<item historyLabel="bookmall.exerd" index="4"/>
+<item historyLabel="webdb.exerd" index="6"/>
+<item historyLabel="webdb_guestbook.exerd" index="7"/>
+<item historyLabel="webdb_emaillist.exerd" index="8"/>
+<item historyLabel="mysite.exerd" index="9"/>
+<item historyLabel="webdb_emaillist.exerd" index="8"/>
+<item historyLabel="mysite.exerd" index="9"/>
+<item historyLabel="webdb_emaillist.exerd" index="8"/>
+<item historyLabel="searchmusic.exerd" index="10"/>
+<item historyLabel="webdb_guestbook.exerd" index="11"/>
+<item historyLabel="searchmusic.exerd" index="10"/>
+<item historyLabel="mysite.exerd" index="9"/>
+<item historyLabel="webdb_emaillist.exerd" index="12"/>
+<item historyLabel="mysite.exerd" index="9"/>
+<item historyLabel="searchmusic.exerd" index="13"/>
+<item historyLabel="webdb_guestbook.exerd" index="14"/>
+<item historyLabel="searchmusic.exerd" index="13"/>
+<item historyLabel="bookmall.exerd" index="15"/>
+<item historyLabel="webdb_emaillist.exerd" index="12"/>
+<item historyLabel="webdb_guestbook.exerd" index="14"/>
+<item historyLabel="mysite.exerd" index="9"/>
+<item historyLabel="webdb_guestbook.exerd" index="16"/>
+<item historyLabel="bookmall.exerd" index="17"/>
+<item historyLabel="mysite.exerd" index="9"/>
+<item historyLabel="webdb_emaillist.exerd" index="18"/>
+<item historyLabel="searchmusic.exerd" index="19"/>
+<item historyLabel="mysite.exerd" index="9"/>
+<item historyLabel="hr.exerd" index="20"/>
+<item historyLabel="bookshop.exerd" index="21"/>
+<item historyLabel="bookmall.exerd" index="17"/>
+<item historyLabel="webdb_guestbook.exerd" index="16"/>
+<item historyLabel="webdb_emaillist.exerd" index="18"/>
+<item historyLabel="searchmusic.exerd" index="19"/>
+<item historyLabel="mysite.exerd" index="9"/>
+<item historyLabel="webdb_guestbook.exerd" index="16"/>
+<item historyLabel=".project" index="22">
 <position/>
 </item>
-<item historyLabel="webdb_guestbook.exerd" index="17"/>
-<item active="true" historyLabel="webdb_mysite2board.exerd" index="24"/>
+<item historyLabel="webdb_guestbook.exerd" index="16"/>
+<item historyLabel="webdb_mysite2board.exerd" index="23"/>
+<item historyLabel="webdb_emaillist.exerd" index="24"/>
+<item historyLabel="webdb_mysite2board.exerd" index="23"/>
+<item historyLabel="webdb_mysite2board123123.exerd" index="25"/>
+<item active="true" historyLabel="webdb_mysite2board.exerd" index="23"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -290,6 +291,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="webdb_mysite2board123123.exerd" tooltip="C:\Users\BIT\Downloads\webdb_mysite2board123123.exerd">
+<persistable uri="file:/C:/Users/BIT/Downloads/webdb_mysite2board123123.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="webdb_mysite2board.exerd" tooltip="webdb/webdb_mysite2board.exerd">
 <persistable path="/webdb/webdb_mysite2board.exerd"/>
 </file>
