@@ -35,3 +35,16 @@ jdbc는 마이바티스소스안에있는것이다. 그래서 주입만받아서하면됨
 
 
 <!-- MyBatis SqlSessionFactoryBean 여기안에 Datasource있고 setDatasource하겟지 세터있어야됨-->  
+
+
+
+--------------------------------------------
+MyBatis 하는법
+   1. Pom.xml에 mybatis 라이브러리 등록
+   2. Application-context.xml에 <!-- Connection Pool DataSource --> <!-- MyBatis SqlSessionFactoryBean --> <!-- MyBatis SqlSessionTemplate --> 라이브러리 등록
+   3. Resources 폴더 밑에 MyBatis, MyBatis.Mappers 폴더를 생성
+   4. Mybatis 폴더아래 Configuration.xml이라는 mybatis 설정파일을 생성하고 안에 설정을 해둠
+   5. Mapper 폴더밑에 Configuration에 설정해둔 xml파일을 만들어서 그안에 쿼리문을 작성
+   6. Dao에 sqlSession을 오토와이어해서 주입시키고 그걸 이용하여 select,insert 등을 수행
+
+

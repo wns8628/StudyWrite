@@ -1,0 +1,51 @@
+Aop 적용순서 
+ 
+1) pom.xml에 aspect 등록 - 라이브러리등록
+2) applicationContext.xml , spring-servlet.xml 두군대다 autoproxy설정 
+3) Aspect클래스를 만들고(@Aspect, @Component) 
+   Point cut (Before, After 등등) 달아주고(매핑하고) 하면됨! 						
+   //around 중요*  
+
+---------------------------------------------------------------------------------------------
+AOP=관점지향프로그래밍
+
+클래스를 만든다는건 그 클래스가 해야할일 , 역할이있다.
+클래스는 그 일에따라 메소드를만들고 일을 수행 
+
+ Aspect == Role == Common : 다똑같은말이다? = 각자역할이있다.(핵심)
+
+객체는 한가지 역할만 수행하는게 바람직하다=> 어쩔수 없이 여러관심, 역할이 들어있다. 
+
+------------
+1)행단관심(advice)를 빼고 						- what
+2)pointCut : (빼낸것을 어느메소드에서실행실킬지 정하는것) 		- where
+3)Join point : (정하고난뒤정한메소드 앞,뒤 ,뭐 등등에실행해라 지정가능)	- when
+                  -before
+ 	      -after 
+ 	      -Around
+ 	      -after returning?
+|	      -after Throwing?						|
+ ------------------------------------↓---------------------------------------------------
+                                         Aspect (위에것들을 이 클래스에서 설정하면됨)
+ 
+(위빙)Weaving = 빼낸횡단관심을 삽입하는과정을말한다.
+
+-----------------
+
+ 즉 1) 컨트롤러가 서비스의 특정 메소드를 호출하면 
+     2) 서비스는 프록시로 복사되어 불리어진다.  
+     3) Aspect가 위빙을통해 프록시에 꿰메어져서 프록시가 실행되는것이다! 
+
+-----------------
+
+ ex) Dao의 실행타임을 알고싶다. 하면 
+
+  1. StopWatch stopWatch  = new StopWatch();
+  2. stopWatch.start();
+  3. UserVo userVo = ~~~  //코드를 고쳐야함 ㅅㅂ
+  4. stopWatch.stop()
+  5. Long totalTime = stopWatch.getTotalTimeMillis();
+  6. sysout("----> " + totalTime) //출력 	
+  5. return userVo;
+
+그지같다. 그러니깐 AOP로빼자
