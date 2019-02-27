@@ -27,38 +27,10 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-<part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="webdb_emaillist.exerd" partName="webdb_emaillist.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/webdb_emaillist.exerd" title="webdb_emaillist.exerd" tooltip="webdb/webdb_emaillist.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/webdb_emaillist.exerd"/>
-</editor>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="mysite.exerd" partName="mysite.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/mysite.exerd" title="mysite.exerd" tooltip="webdb/mysite.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/mysite.exerd"/>
-</editor>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="searchmusic.exerd" partName="searchmusic.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/searchmusic.exerd" title="searchmusic.exerd" tooltip="webdb/searchmusic.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/searchmusic.exerd"/>
-</editor>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="webdb_guestbook.exerd" partName="webdb_guestbook.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/webdb_guestbook.exerd" title="webdb_guestbook.exerd" tooltip="webdb/webdb_guestbook.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/webdb_guestbook.exerd"/>
-</editor>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="bookmall.exerd" partName="bookmall.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/bookmall.exerd" title="bookmall.exerd" tooltip="webdb/bookmall.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/bookmall.exerd"/>
-</editor>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="hr.exerd" partName="hr.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/hr.exerd" title="hr.exerd" tooltip="webdb/hr.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/hr.exerd"/>
-</editor>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="bookshop.exerd" partName="bookshop.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/bookshop.exerd" title="bookshop.exerd" tooltip="webdb/bookshop.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/bookshop.exerd"/>
-</editor>
 <editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="webdb_mysite2board.exerd" partName="webdb_mysite2board.exerd" path="D:/duzon/StudyWrite/exerd-workspace/webdb/webdb_mysite2board.exerd" title="webdb_mysite2board.exerd" tooltip="webdb/webdb_mysite2board.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/webdb/webdb_mysite2board.exerd"/>
 </editor>

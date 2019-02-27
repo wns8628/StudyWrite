@@ -1,12 +1,12 @@
 $.ajax{
   ~~~
  type: "post"
- data : '{no:'10', name:'둘리'}..'    //스트링으로 보내야함 
+ data : 'no=10'&name=둘리..'    //이럭식으로 스트링으로 보내면  
 }
 
  보내면 
 
- @ResponseBody = 응답?
+ @ResponseBody = 응답할떄 JSON
  handler메소드(@RequestBody 로받음){ }
 
  = String Object => 메세지컨버터	

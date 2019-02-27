@@ -270,6 +270,8 @@ update site set title=?, welcome=? ,profile=? ,description=?;
 insert into user values(null, '마스터','wns8628@naver.com','zx8277898','male',now(), 'ADMIN');
 
 
-
-
-
+select no,comment,image_url from gallery order by no desc;
+insert into gallery values(null,'테스트용', '/uploads/images/im1.jpg');
+insert into gallery values(null,'테스트용', '/uploads/images/im2.jpg');
+insert into gallery values(null,'테스트용', '/uploads/images/im3.jpg');
+delete from gallery where no=1;
