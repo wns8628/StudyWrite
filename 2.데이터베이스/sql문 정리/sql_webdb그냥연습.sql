@@ -220,11 +220,10 @@ desc comment;
 
 
 
-
 select * from user;
 select * from board;
 
-
+delete from user where no=7;
 
 select no,name,email,gender, join_date 
   from user  

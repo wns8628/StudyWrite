@@ -1,0 +1,39 @@
+
+유효성검사(2가지로 나뉠수있다.)
+
+ 1. Client (JS) - 보안보다는 UX 측면이 강하다. ( 서버에서 체크하면 다시 입력할려면 전부새로고침되니깐 그런거방지 )
+
+ 2.  Server - 보안측면 (내가 의도한 폼에서 데이터가 날아오지 않을 수 있기 떄문에)
+
+
+--------------------------------
+스프링 - 
+
+ @Valid  : VO기준으로 검사한다.  
+ JSR 303 Spec에서
+ 여러가지 어노테이션을 제공한다. (하이버네이트도 제공해줌) :하이버네이트는 발리데이션보다는 테이블매핑위해서 사용하는게 원래목적?
+				 	
+ 1)Validation 라이브러리 등록 pom.xml
+ 2) @Valid로 VO 받고 , Vo에 제약조건달기(여러어노테이션이 제공됨)
+ 3) BindingResult로 결과분석
+ 4) if(result.hasErrors()) { model로 넘기기 }
+ 5) spring-servlet.xml 에 MessageSource 등록 (커스텀에러메세지때문에 ) 
+에러출력위해
+ 6) jsp에 스프링 태그 라이브러리등록
+	   사용: (1) <spring:hasBindErrors name="userVo"> :이거쓰면 불편 
+				커스텀메세지: 5)번작업  = 1.spring-servlet.xml에 메세지리소스등록 (한국어버전,중국,일본등등 등록)	
+					      2.resources폴더밑에 messages패키지등록후 프로퍼티등록(messages_ko.properties)
+					        코드값과 매핑되는 메세지를 여기적는거지			
+
+                      (2) Form태그사용(html태그가아니라 자바코드임)
+			 	1. jsp에 폼태그 라이브러리 등록 
+				2. form: 이걸달아줌 적용할것에	
+		                        3. 폼에 modelAttribute="userVo" 이런식으로 Vo등록 
+				4. <form:input path="email"/>
+				   <form:errors path="errors"/>
+
+
+
+----------------------------
+
+ 템플릿사용? ajax할떄?
