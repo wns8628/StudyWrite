@@ -1,0 +1,54 @@
+Inversion of Control( 제어역전 ) 이란 프로그램 코드 내에서 참조하려는 객체를
+직접 생성  하지 않고  외부의 다른 존재가  생성하여 제공한다는 개념
+
+외부의 다른 존재(객체) 를  Container 라고 하며  IoC 오브젝트 또는 IoC Container 라고 한다
+IoC 의 구현 방법 = new를 컨테이너가해줌
+
+Dependency  Lookup-EJB등 객체가 객체를찾는다
+Dependency  Injection- 컨테이너가 객체를찾는다- 스프링
+
+-----------------
+톰캣은 스레드기반으로돈다.(동기서블릿)
+
+- 스레드, 싱글톤
+
+ *스프링은 싱글톤
+   즉 vo는 컨테이너관리대상이아니다. /vo안에있으면 싱글톤이라서 다른 쓰레드가 뜬금없이
+   건드려버릴수가있다. 
+
+ 서비스는 인스턴스변수두지마라- 스레드끼리 같은코드를돌때 변수를건드릴수있으니(싱글톤이니)
+			      (공유자원)
+  
+
+ 톰캣은동기이기 때문에 블락킹이 걸릴수있다. DAO디비찾거나 Service에서뭔가 메일을보낸다거나
+ 복잡한 로직이있으면 그작업동안 블락킹됨(응답을기다리기떄문에)
+
+  톰캣8.0부터 비동기서블릿 지원됨 
+  
+-------------
+ 
+ 톰캣은 HttpServletRequest을 상속받는 서블릿을 구현해서쓴다. - 톰캣컨테이너에서제공
+	↕
+ 스프링의 컨테이너안에 빈들은 상속안받음 = POJO 
+------
+            
+  스프링컨테이너 종류
+      1. org.springframework.beans.factory.BeanFactory 빈(Bean) 팩토리 인터페이스 
+      2. org.springframework.context.ApplicationContext 애플리케이션 컨텍스트 인터페이스 
+
+ 위 2 개의 인터페이스를 구현한 다수의 Container 클래스가 존재
+    
+    XmlBeanFactory, ClassPathXmlApplicationContext, FileSystemXmlApplication,
+    XmlWebApplicationContext (JEE 환경에서 설정이 가능) 등
+
+  *빈팩토리 인터페이스는 거의안씀 (어플에적용할때씀)
+  
+
+
+  
+
+
+
+
+
+

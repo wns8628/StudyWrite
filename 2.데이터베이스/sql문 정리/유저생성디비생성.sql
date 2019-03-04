@@ -12,3 +12,10 @@ grant all privileges on bookmall.* to 'bookmall'@'localhost';
 
 
 drop database bookmall;
+
+-- db생성
+create database jblog;
+-- 유저생성 
+create user 'jblog'@'localhost' identified by 'jblog'; 
+-- 권한주기
+grant all privileges on jblog.* to 'jblog'@'localhost'; 
