@@ -1,0 +1,68 @@
+*리눅스에서 확장자 (.exe, .txt) 이런건 그냥 명시적인것임 
+	(윈도우는 저런거 안붙이면 실행자체가안되잔아)
+
+---------------
+탐색
+  nslookup : DNS 관련 정보를 조회  
+  pwd : 내위치 
+
+  ls -a : 히든파일까지 다나와라
+  ls -l : 자세히 
+  ls -la : 히든+자세히 
+ 
+ df -h : h는 휴면 즉 인간이있을수있게 디스크상태를보여줘라?
+---
+# ps -ef | grep sshd 
+  
+     ps : 프로세스 
+      -e : 전체,자식...
+       f :  뭕지모름 
+      |  : 파이프  (앞의 결과가 뒤에 것의 인풋이된다.) ( ps -ef 결과를 파이프로 넘겨줌 )
+    grep : 내용검색 
+    sshd : 키워드 
+
+ - 전체프로세스중에 sshd찾아서 화면에뿌려라 이말임 
+
+---
+종료 
+# halt  
+# shutdown -h now  - 하기전에 sync 3번정도쳐봐라
+
+-----
+
+ useradd -g wheel webmaster   //보안위해 이렇게 계정을추가?
+
+------
+
+ 처음로그인시 몇가지 설정을위해  쉘이 몇개 실행됨 
+ 그래서 보안설정을 해줘야함 
+
+ vi /etc/profile  // 여기밑에 
+ 
+  	#security 
+	export TMOUT = 300~~~
+
+-------------
+
+  /etc/init.d ==>데몬실행시키는 스크립트들?
+
+  /etc/init.d/sshd stop => 이러면 sshd데몬꺼짐 근데 이미연결되있는건 안꺼짐    
+
+ 데몬이어떻게작동함 ?
+
+  sshd데몬은 연결이되면 fork로 복사해서 그거랑 데이터통신함?
+   sshd-(accept)
+      | 
+      | fork
+   sshd(복사본)------------------ ssh 
+
+
+---------    
+원격  root 막기 
+  vi /etc/ssh/sshd_config 
+ #PermitRootLogin yes 
+    ↓
+ PermitRootLogin no 
+
+----------------------
+

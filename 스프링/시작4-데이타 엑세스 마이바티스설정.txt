@@ -47,4 +47,6 @@ MyBatis 하는법
    5. Mapper 폴더밑에 Configuration에 설정해둔 xml파일을 만들어서 그안에 쿼리문을 작성
    6. Dao에 sqlSession을 오토와이어해서 주입시키고 그걸 이용하여 select,insert 등을 수행
 
-
+ id = 구분 
+ parameterType = 
+ 
