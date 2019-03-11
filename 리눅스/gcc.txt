@@ -1,0 +1,49 @@
+컴파일러?
+
+ hello.c    ->   hello.o      ->	 -> hello
+ 소스파일     오브젝트파일    Link 작업 (stdio.h 를 stdio.o로바꾸고)
+				  hello.o 랑합쳐야하니깐
+
+ gcc -c hello.c  //소스파일을 오브젝트파일로컴파일?
+ 
+ gcc -o hello hello.o //오브젝트파일을 hello라는이름의 실행파일을만듬 
+		  //링크작업까지해주는거지 
+
+---------------------------------
+ make 
+
+ pom.xml 을 예를들면 라이브러리나 빌드하는것들을 적어놓지? 
+
+ex)maven 프로젝트
+ hello-			
+       |- A.java		
+       |- B.java
+       |- pom.xml
+hello.jar
+
+  =이걸 pom.xml 안에 빌드부분을보고 빌드해줌 //#mvn 하면 pom.xml읽고 빌드
+
+
+-------
+ hello-			
+       |- A.java		
+       |- B.java
+       |- makefile  //즉 이런역할을하는거임 //#make 때리면 makefile읽고 빌드?
+            
+	//의존성해결. 소스파일이변경되었나 안되었나 보고? 
+ 
+ -------------
+
+ touch 
+
+ a.o => a.c 가 의존관계면 최신시간기준으로 a.o가 젤최근이지 
+	   (a.c가 있어야 a.o가 만들어지니깐)
+
+ touch a.c를 해버리면 a.c가 최신시간으로 바뀜 
+ 그면 make가 다시 재컴파일하겠지?  a.o가 더오래됐다는건 말이안되니깐 
+ 소스가변경됐구나 인식해서 재컴파일! 
+
+--------
+ 
+
+          

@@ -19,3 +19,5 @@ create database jblog;
 create user 'jblog'@'localhost' identified by 'jblog'; 
 -- 권한주기
 grant all privileges on jblog.* to 'jblog'@'localhost'; 
+
+grant all privileges on *.* to 'webdb'@'%' identified by 'webdb';

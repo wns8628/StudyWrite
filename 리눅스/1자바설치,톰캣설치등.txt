@@ -1,0 +1,109 @@
+1.root로그인
+2. jdk다운 
+   wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
+3. gzip -d jdk~~~~ //압축풀기 1 
+4. tar -xvf jdk-8u201-linux-x64.tar  //압축풀기 2 
+
+
+ /usr/local/douzone/
+	  	| java 
+	    	 mysql
+	  	 tomcat
+	  	 git
+	  	 maven
+
+ 이렇게 만들거다 . 
+
+ 1. mkdir /usr/local/douzone
+ 2. 압축푼파일 (jdk1.8.0_201) 폴더옮기기 : mv jdk1.8.0_201/ /usr/local/douzone/
+ 3. 링크파일만들기(바로가기) ln -s /usr/local/douzone/jdk1.8.0_201/ /usr/local/douzone/jdk
+ 4. 환경변수설정 //밑에봐라
+ 5. 버전확인해봐라 java -version
+
+ 테스트 - vi HelloWorld.java     - 만들기
+            javac HelloWorld.java - 컴파일
+	java HelloWorld     - 실행
+-------------------------------------
+링크? 
+/usr/local/douzone/jdk/bin/java
+
+환경변수설정  vi /etc/profile  
+# java
+export JAVA_HOME=/usr/local/douzone/jdk
+export CLASSPATH=.:$JAVA_HOME/lib/tools.jar     // . 이있는이유가 현재디렉토리에서 찾기떄문
+export PATH=$PATH:$JAVA_HOME/bin
+
+
+public class HelloWorld {
+	public static void main(String[] args){
+		system.out.println("Hello World");
+	}
+}
+
+
+java HelloWorld 실행 ㄱ 
+
+
+-------------------------------------------------------------------------------
+
+톰캣깔기 8.5
+
+1)구글에서 tar.gz 톰캣파일찾기 
+  	unzip이용해서 zip파일받아서 깔수도있다.(yum -y install unzip*) 
+2) wget http://apache.mirror.cdnetworks.com/tomcat/tomcat-8/v8.5.38/bin/apache-tomcat-8.5.38.tar.gz
+
+3) tar xvfz apache-tomcat-8.5.38.tar.gz  //압축풀기 
+
+4) mv apache-tomcat-8.5.38 /usr/local/douzone/tomcat8.5 //폴더 이동~ 더존폴더로
+
+5) ln -s /usr/local/douzone/tomcat8.5/ /usr/local/douzone/tomcat 링크파일 만들기
+							( ls -l 확인!)
+6) 환경변수설정 ( vi /etc/profile ) 
+   #tomcat 
+   export CATALINA_HOME=/usr/local/douzone/tomcat
+
+--테스트 --
+  
+7) 일단 방화벽풀기  vi /etc/sysconfig/iptables 
+		(붙여넣기: A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT )
+
+8) 톰캣실행 해보기 douzone/tomcat/bin 밑에 > catalina.sh start
+
+9) 서버실행시 바로서버올라오도록 데몬설정 
+	1./etc/init.d/tomcat  파일만들고 vi로 열어서 
+            2.tomcat-hmo 파일복붙(다운) 
+            3.몇가지 패쓰고침
+	  
+10) chkconfig에서 서버켜지면 바로띄워라 설정해줄수있다. 
+     1. chkconfig chkconfig --level 2345 tomcat on
+ 
+올라왔는지확인해보삼
+ ps -ef | grep tomcat 
+ 
+---------------------------------------------------------------------------------------------------------
+ 
+ helloWeb.war 올리기
+ war파일을 톰캣 webapps/ 밑에 올려놔라 
+ 
+- 방법1 - 
+1. sftp로 전송후 webapps 로 mv시켜  
+
+-방법2-
+웹으로올리기
+  1. /usr/local/douzone/tomcat/conf/tomcat-users.xml 열어서 ppt 14페이지 role복사붙여넣기 ㄱ 
+  2. admin manager 아디비번 바꿔줘라꼭 아니면 짱꺠가 들어와서 채굴기설치함
+
+  3. /usr/local/douzone/tomcat/webapps/manager/META-IN/밑에 파일 열어서  
+   <--
+  <Valve ~~~   
+    --> 주석막기
+ 
+  4. 톰캣재실행
+  /etc/init.d/tomcat stop 
+  /etc/init.d/tomcat start
+
+----------------------------------------- 
+
+
+  
+
