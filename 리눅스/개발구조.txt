@@ -1,0 +1,14 @@
+	     [maven,was,jenkins-> gitClient, gitlab에서 프로젝트(mysite)가져와서 maven으로 빌드]
+	     [was2 : 서비스용, 위에was는 젠킨스용 was] 
+		|                
+ GW--------------------------------
+	|		|
+          mysql	          gitlab
+	
+
+ mysql :한대
+ gitlab : github로 대체 
+ 서비스,젠킨스용 : 한대
+
+
+

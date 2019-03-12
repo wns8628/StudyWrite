@@ -40,7 +40,7 @@ jdbc는 마이바티스소스안에있는것이다. 그래서 주입만받아서하면됨
 
 --------------------------------------------
 MyBatis 하는법
-   1. Pom.xml에 mybatis 라이브러리 등록
+   1. Pom.xml에 mybatis 라이브러리 등록/  common dbcp ,MySQL Connector JDBC Driver ,mybatis 2
    2. Application-context.xml에 <!-- Connection Pool DataSource --> <!-- MyBatis SqlSessionFactoryBean --> <!-- MyBatis SqlSessionTemplate --> 라이브러리 등록
    3. Resources 폴더 밑에 MyBatis, MyBatis.Mappers 폴더를 생성
    4. Mybatis 폴더아래 Configuration.xml이라는 mybatis 설정파일을 생성하고 안에 설정을 해둠
