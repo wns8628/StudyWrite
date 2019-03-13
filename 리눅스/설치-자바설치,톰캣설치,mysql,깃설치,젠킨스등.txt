@@ -158,3 +158,131 @@ webdb 만들자
  					lx0
  mysql -u webdb -D webdb -p 접속 	
 
+
+
+---------------------------------------------------------------------------------------------------------
+ -git설치- 
+
+1) zlib 설치하기
+[root@localhost ~]# wget http://www.zlib.net/fossils/zlib-1.2.8.tar.gz
+...
+...
+[root@localhost ~]# tar xvfz zlib-1.2.8.tar.gz
+...
+...
+[root@localhost ~]# cd zlib-1.2.8
+[root@localhost zlib-1.2.8]# ./configure --prefix=/usr/local
+Checking for gcc...
+...
+...
+[root@localhost zlib-1.2.8]#make
+...
+...
+[root@localhost zlib-1.2.8]# make install
+...
+...
+...
+
+2) perl-devel 인스톨
+  
+ [root@localhost ~]# yum install perl-devel //의존성라이브러리설치완료
+
+
+ 제트리버밖으로나와서?
+  
+3)git 클라이언트 설치 
+
+[root@localhost ~]# wget https://www.kernel.org/pub/software/scm/git/git-2.6.4.tar.gz
+...
+...
+[root@localhost ~]# tar xvfz git-2.6.4.tar.gz
+...
+...
+[root@localhost ~]# cd git-2.6.4
+[root@localhost zlib-1.2.8]# ./configure --prefix=/usr/local
+Checking for gcc...
+...
+...
+ 
+*Tcl/Tk 설치하셈 
+            - yum -y install gettext
+	
+[root@localhost zlib-1.2.8]#make
+...
+...
+[root@localhost zlib-1.2.8]# make install
+...
+...
+[root@localhost zlib-1.2.8]#git ?version
+git version 2.6.4
+[root@localhost git-2.6.4]#
+
+--------------------------------------------------------------
+
+*maven 설치 (경로이상한데서하지마셈)
+
+root@localhost ~]#  wget http://apache.mirror.cdnetworks.com/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+...
+[root@localhost ~]# tar xvfz apache-maven-3.3.9-bin.tar.gz
+...
+[root@localhost ~]# mv  apache-maven-3.3.9-bin.tar.g /usr/local/douzone/maven3.3.9
+
+maven 환경 변수 설정 ( /etc/profile )
+	
+	#maven
+	export M2_HOME=/usr/local/douzone/maven3.3.9
+	export PATH=$PATH:$M2_HOME/bin
+
+mvn --version //버전확인 
+
+------------------------
+
+jenkins 설치 (위치제데로까셈 로컬)
+
+최신버전받으셈 
+- wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+
+톰캣webapp으로 올리기 
+-mv jenkins.war /usr/local/douzone/tomcat/webapps/
+(tomcat/webapps에 가서 압축풀렸는지확인)
+
+lock풀기
+  ls -al
+  /root/.jenkins/secrets/initialAdminPassword 여기에 비번있다.
+
+
+깃 올릴려면 일단  
+1. yum install curl-devel
+2. cd git-2.6.4
+3. ./configure --prefix=/usr/local
+4. make
+5. make install
+
+빌드의 
+ invoke top-level Maven targets
+	↓
+    clean package tomcat:redeploy -Pproduction -Dmaven.test.skip=true   // pom.xml의?? 뭐 ..
+			       //프로파일임 : 프로파일대로 수행하라!  
+	
+*etc/init.d/tomcat --여기에서 maven 패쓰잡아줘야함 
+export PATH=$PATH:$JAVA_HOME/bin:/usr/local/douzone/maven3.3.9/bin
+
+ 그리고 이클립스는 톰캣라이브러리를 자동세팅해주는데 
+ 젠킨스는 톰캣 라이브러리를 세팅을 안해줘서 컴파일에러가발생함 
+ 즉 순수하게 pom.xml에있는 라이브러리만 보고 추가만해주니깐.. 
+ 서블릿라이브러리 이런건 없지 .. 
+  
+ 근데 pom.xml에 서블릿라이브러리를 세팅하면 이클립스랑출동나니깐
+ 프로파일을 쓴다! (pom.xml에 프로파일(ppt에있음) 복붙하셈 )
+
+ 즉 이클립스에서 Deployment Assembly 에있는짓을 maven이해준다고보면됨 
+ 
+**
+ tomcat maven plugin 추가해줘야함 (피피티에있음)
+				
+	/usr/local/douzone/tomcat/conf - tomcat-users.xml 의 아디비번잘지정해주고 :8080!붙이삼
+			                                         젠킨스를 따로둔다하면 ip를 127.0.0.1:8080말고
+						 	제데로해줘야함
+						   	
+
+------------------------------------------------------

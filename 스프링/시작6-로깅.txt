@@ -1,0 +1,21 @@
+
+ 톰캣 [ 디스패처서블릿 <->인터셉터<->컨트롤러<->서비스<->다오 ]
+ 받음	 ◀에러             ◀에러     |  받음      ◀에러     ◀에러
+ 	
+    
+
+       *인터셉터에서 발생하는거는 ? 디스패서블릿으로 익셉션처리가넘어가고
+        디스패처서블리싱처리를안하면 톰캣한테올라감 
+        톰캣이 ~/tomcat/logs 여기에 catalina.out에 남김 
+
+ 글로벌익셉션핸들러? - 인터셉터도 결국 컨테이너안에있어서 
+		      인터셉터까지 받아내는 글로벌익셉션핸들러는만드는게 더낫다.
+                               (디스패처는 톰캣한테가는게맞고)
+		↓
+@Aspect
+@Component
+public class MeasureExecutionTimeAspect {
+	@AfterThowing?             *?컨트롤러한정 x
+	@Around("execution(* *..respository.*.*(..)) || execution(* *..service.*.*(..)) || execution(* *..controller.*.*(..))")
+	public Object aroundAdvice(ProceedingJoinPoint pjp) throws Throwable{
+			
