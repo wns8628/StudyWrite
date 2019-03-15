@@ -19,3 +19,20 @@ public class MeasureExecutionTimeAspect {
 	@Around("execution(* *..respository.*.*(..)) || execution(* *..service.*.*(..)) || execution(* *..controller.*.*(..))")
 	public Object aroundAdvice(ProceedingJoinPoint pjp) throws Throwable{
 			
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+ logback.xml 
+
+1) appender : 에러가난것을 어디다 뿌려줄지 지정해주는것(여러곳 가능)
+	 					콘솔,파일등등
+
+  그리고 각 로거를 지정해준다. : <logger name="com.douzone.logex3"  level="warn" additivity="false">
+    
+2) 지정된 컨트롤러에서 로거추가해줌
+    이런식으로 
+ 	 *  Logger 생성
+	private static final Log LOG = LogFactory.getLog( ExampleController2.class );
+	
+
+마이사이트 
+3)글로벌익셉션핸들러 하셈!

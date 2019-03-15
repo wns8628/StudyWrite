@@ -1,0 +1,71 @@
+sysinfo.sh  //호스트 정보출력다뽑는다.
+
+<shell 작업>
+sysinfo.sh Xftp로 /home/webmaster에 복사한다.
+
+mv /home/webmaster/sysinfo.sh .
+
+chown root:root sysinfo.sh
+chmod 700 sysinfo.sh
+
+vi sysinfo.sh 에서 :%s/more/cat/g로 문자열 치환
+
+./sysinfo.sh
+파일로 리다이렉트
+./sysinfo.sh > sysinfo.txt
+more sysinfo.txt
+
+---------------------------------------------------------------------
+
+mysql 초기설정위해?
+
+/etc/my.cnf  
+
+# The following options will be passed to all MySQL clients
+[client]
+port            = 3306
+socket          = /usr/local/douzone/mysql/tmp/mysql.sock
+character-set   = utf8
+
+[mysqld]
+port = 3306
+datadir = /usr/local/douzone/mysql/data
+socket = /usr/local/douzone/mysql/tmp/mysql.sock
+pid-file = /usr/local/douzone/mysql/tmp/mysqld.pid
+user = mysql
+symbolic-links = 0
+key_buffer_size = 256M
+max_allowed_packet = 1M
+table_open_cache = 256
+sort_buffer_size = 1M
+read_buffer_size = 1M
+read_rnd_buffer_size = 4M
+
+# Try number of CPU's*2 for thread_concurrency
+thread_concurrency = 2
+
+character-set-server=utf8
+collation-server=utf8_general_ci
+
+init_connect=SET collation_connection=utf8_general_ci
+init_connect=SET NAMES utf8
+
+[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/usr/local/douzone/mysql/tmp/mysqld.pid
+
+[mysqldump]
+quick
+max_allowed_packet = 16M
+
+---------
+
+/etc/init.d/mysqld stop
+/etc/init.d/mysqld start
+
+mysqldump -u webdb -p webdb > webdb.sql
+
+cat webdb.sql
+
+mysqldump -u webdb -p webdb < webdb.sql
+

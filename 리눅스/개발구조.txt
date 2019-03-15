@@ -6,7 +6,7 @@
           mysql	          gitlab
 	
 
- mysql :한대
+ mysql :한대?
  gitlab : github로 대체 
  서비스,젠킨스용 : 한대
 
