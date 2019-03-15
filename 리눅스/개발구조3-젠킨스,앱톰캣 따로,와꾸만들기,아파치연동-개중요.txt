@@ -1,6 +1,8 @@
-*인스턴스 분리 
+개발구조3-젠킨스,앱톰캣 따로,와꾸만들기,아파치연동-개중요
 
 --------------------------
+*인스턴스 분리 (StudyData\02.강의\07.Linux-CI(Dev Tools)\실습및과제\tomcat multi-instance 참고)
+
 젠킨스만돌아가는 톰캣 
 어플리케이션만 돌아가는 톰캣
 이렇게 두개 있는게 좋다.
@@ -23,7 +25,6 @@
  이렇게해야    211.38.1.2/mysite3/ ~~~ > 이렇게안하고
 	      211.38.1.2/		  > 이렇게할수있지 ?
 
-
 방법:
  
  /usr/local/douzone/tomcat
@@ -35,16 +36,11 @@
 	
 이렇게 나눌거다. 
 
-
-------------------------------------------
-
- 일단 서버가상환경구성 
- (와꾸만들고 복사해서쓰기)
-
 ----------------------------------
 
- 정리 
-
+ 정리   -- lx0   - 톰캣서버
+         -- lx1   - 아파치서버                         >이렇게할거임	
+	
    VBox 
  [ centOs 6.9 ]
    lx - 얘를복사
@@ -71,6 +67,8 @@
 3번) lx1만들고 아파치연동 
 
 -------------------------   
+*순서 ( 분리작업 / 와꾸작업 / 복사 아파치연동작업 )
+
 1)분리작업 
 
 |------tomcat(껍데기만사용)  
@@ -86,9 +84,6 @@
 
 이렇게해야함
 
------------
-*순서 
- 
 -- 1. 젠킨스 인스턴스만들기 --
 
 $ cd /usr/local/douzone     	-- 들가
@@ -284,7 +279,8 @@ $ ps -ef | grep tomcat --확인
 
 
     6)SELINUX(쉘 리눅스) 설정 disable 시키기 --(ip테이블이 방화벽인데 이걸켜줘도 쉘리눅스땜에 못들어올수있기때문.) 
-
+		
+	vi /etc/selinux/config
 		SELINUX=enforcing  
 			↓
 		SELINUX=disabled 이렇게
@@ -304,7 +300,9 @@ $ ps -ef | grep tomcat --확인
   	 [root@localhost ~]# useradd -g wheel webmaster
  	 [root@localhost ~]# passwd webmaster
 
-    9) time out 1000 잡기
+
+
+    9) time out 1000 잡기 - (보안을위해서 root를 로그아웃시킬려고 시간마다.)
 		   vi /etc/profile
 			     ↘
 			       # security 
@@ -312,11 +310,126 @@ $ ps -ef | grep tomcat --확인
 			       HISTTIMEFORMAT="%Y-%m-%d_%H:%M:%S [CMD]:"
 		
 
+  *이걸로 기본설정된 와꾸가 완성되었다.
+						
 
---------------------------------------------------------------------------
+=====================================================================================================
 
 
+작업3) 와꾸를 가지고 카피본 만들어서 거기다 아파치연동하기  ( lx1 )  
+ 
+ 1) VBOX에서 와꾸클릭 - 복제 - MAC Address Policy : Generate new MAC .... -선택 - 완전한복제 
+   
+
+ 2) 복사된lx1 에 들어가서  MAC어드레스 바꿔줘야함
+
+	 vi /etc/sysconfig/network-scripts/ifcfg-eth0 
+			↓ 
+	 vi /etc/sysconfig/network-scripts/ifcfg-eth1  //똑같으니 1로바꿔주고
+					↓
+					들어가서 MAC주소 장치 MAC주소로 바꿔주자
+
+	
+	 이유) 복사된 장치( 하드웨어는 MAC주소가똑같지않으니 다른 MAC주소가부여됨 )
+			 하지만 	 vi /etc/sysconfig/network-scripts/ifcfg-eth0 이파일은
+		              똑같이복사되니 eth1로바꾸고 맥주소 바꿔줘야지 
 
  
-     
+    
+ X 3) 호스트네임바꿔주자( localhost → lx1 ) 으로 	------------------------------------->!X--아파치실행위해 하지마 ....
+			↘
+			vi /etc/sysconfig/network
+					  ↓  
+					NETWORKING=yes
+					HOSTNAME=lx1.kickscar.com
+
+
+ 4) 윈도우에서 lx1 들어가기편하게 hosts 변경  -----이건해도별상관없지ㅋㅋ
+ 			↘
+	   C:\Windows\System32\drivers\etc 밑에 hosts 열어서 작업해줘라
+					↓
+			  	     (  218.39.221.97 lx1
+				        218.39.221.97 lx1.kickscar.com ) 
+
+ *이제 Xshell 에서 open으로   이름    - lx1
+ 			  호스트 - lx1.kickscar.com  이런식으로 설정해서 접근가능 
+
+
+*이제 본격적으로 아파치 연동  
+
+
+  5) 아파치설치(root ~)
+	http://archive.apache.org/dist/httpd/
+		↘	
+		wget http://archive.apache.org/dist/httpd/httpd-2.2.8.tar.gz
+
+
+  6)받은거 풀기 - tar xvzf httpd-2.2.8.tar.gz
+			
+  8) 아파치 컴파일 설치 (압축푼폴더 들어가서! 당연한거지)
+		↘
+	CFLAGS=" -DHARD_SERVER_LIMIT=1024 -DDEFAULT_SERVER_LIMIT=1024 -DHARD_SERVER_LIMIT=1024 -DDEFAULT_SERVER_LIMIT=1024"; export CFLAGS 
+	./configure --prefix=/usr/local/douzone/apache --with-mpm=worker --enable-so --disable-access --enable-access=shared --disable-auth --enable-auth=shared --disable-include --enable-include=shared --disable-log-config --enable-log-config=shared --disable-env --enable-env=shared --disable-setenvif --enable-setenvif=shared --disable-mime --enable-mime=shared --disable-status --enable-status=shared --disable-autoindex --enable-autoindex=shared -disable-asis --enable-asis=shared --disable-cgi --disable-cgid --enable-cgid=shared --disable-negotiation --enable-negotiation=shared --disable-dir --enable-dir=shared --disable-imap --enable-imap=shared --disable-actions --enable-actions=shared --disable-userdir --enable-userdir=shared --disable-alias --enable-alias=shared --enable-mods-shared=all 
+				
+  9) make 
+
+   -에러뜨면 find / -name "libtool" -print	            -- shlibtool이없다는말이뜨면 일단 이거 있나 찾아봄 
+	    ln -s /usr/lib64/apr-1/build/libtool shlibtool  -- 이걸쳐서 링크를만들어줌 (httpd-2.2.8 폴더안에서해야됨)  
+
+  10) make-install
+
+
+  11) /usr/local/douzone 밑에 apach 폴더생겼는지 확인!
+
+  12) /usr/local/douzone/apach/bin/apachectl start  -- 실행해보자 - (호스트네임 ㅅㅂ.....)
+							아파치뭐실행할려면 호스트네임 localhost.localdomain
+
+  13) ps -ef | grep httpd --확인해봐 
+
+     */usr/local/douzone/apache/conf/httpd.conf 에서 listen 이 80을 열고있다.
+ 
+  15) 방화벽열기 
+	vi /etc/sysconfig/iptables - 80열면됨
+
+    
+ *설치끝 이제 lx0 에 설치된 mysite 와 jenkins 를 연동시켜보자
+
+    자... 
+
+~~~~~~~~~~~~~~~~~~~~ 
+
+  16) 담주할거임 **tomcat_apache_연동.txt 파일의 설정 잘봐라**
+
+        8080 - ??  
+        8443 - SSL [ https 기때문에 아파치연동함 ]
+        8009 - connector?
+					
+								91번 : localhost??
+		
+(80포트)-----아파치(10)-----------				----------톰캣(91번)----------
+ 	httpd		|				|			|
+ 	mod-JK		|				|			|
+   	   |-------------------------->			   X---8080  [	
+			|		  			   douzone 
+			         			--------8009 [         
+			 
+	          					-------9090  [
+							                jenkins	 
+          	          					-------9009  [ 
+
+--------------------------------------------------------------------------------------------------------------
+
+ 의문 - vi /etc/resolve.conf 에 serch 가 사라짐 !
+	     (네임서버찾기)
+
+
+ 팁 - vi /etc/profile : 로그인을위한 환경설정 , 환경변수잡기
+   	               (모든계정에 공통적으로 적용됨)
+      
+    - vi /etc/sysconfig/iptables  : 방화벽설정 
+  
+    - netstat -ntlp  : 리슨상태보기 
+
+
+
 
