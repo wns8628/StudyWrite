@@ -1,0 +1,75 @@
+ 
+지금까지  xml로 config를 했는데
+이제 java config를 배워보자
+	↓
+ springcontainer 예제봐라 
+
+  xml 설정? - 컨테이너안에 빈설정 같은거 전부 xml로 했잔아
+
+
+ 
+ java Config     xml config
+	 |------|
+	    |- 설정방식 : 컴포넌트,서비스,레파지토리,컨트롤러,오토와이어등		
+		        (어노테이션 스캐닝해서 생성하는 방법 1)
+		         *마이바티스는 스캐닝안하고 직접 빈생성한거임!
+
+	    |- 설정방식2: 직접 빈생성 (스캐닝이아니라. 마이바티스처럼)
+
+ 		     
+--
+ 즉 예제    
+  CD - 스캐닝 방법써라
+DVD - 직접빈생성방법써라
+
+com.douzone.springcontainer.soundsystem -> 컴포넌트 스캐닝
+				 	@component. @autowire
+
+com.douzone.springcontainer.videosystem -> @Bean
+---------------
+
+ java config 장점 : 자바문법을 타잔아 그래서 더 명확하지 ? 
+
+-------------
+    ApplicationContext : 인터페이스 
+              △
+               |
+ [ConfigurableApplicationContext.close.등등 ] - 구현체? 
+ 	  △
+             ~~~자식들?
+-----
+
+ Junit 테스트툴 
+
+   	  <!-- JUnit to Test -->
+	  <dependency>
+	  	<groupId>junit</groupId>
+	  	<artifactId>junit</artifactId>
+	  	<version>4.12</version>
+	  	<scope>test</scope>
+	  </dependency>
+
+    	 <!-- Test?? -->
+	  <dependency>
+	  	<groupId>org.springframework</groupId>
+	  	<artifactId>spring-test</artifactId>
+	  	<version>${org.springframework-version}</version>
+	  	<scope>test</scope>
+	  </dependency>
+
+
+스프링환경 
+@RunWith(SpringJUnit4ClassRunner.class) //스프링환경에서는 이걸써야됨 , 돌려줌 ?
+@ContextConfiguration(classes=AppConfig01.class) //컨테이너를 직접안만들어도 이거붙이면 알아서 만들어줌 
+:
+--------
+|User  |---------- Appconfig 컨테이너
+|  ↓   |		   ..
+|  user
+| maintest
+|------|  		   ..
+  
+
+-
+ 
+

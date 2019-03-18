@@ -186,7 +186,7 @@ $ ps -ef | grep tomcat --확인
   *이제 데몬 스크립트 서버킬시 자동올리기
     	chkconfig --add tomcat-jenkins     --레벨 디폴트임
 	chkconfig --add tomcat-douzone
-
+	
   sync 
   sync 
   sync 
@@ -214,7 +214,7 @@ $ ps -ef | grep tomcat --확인
 
  고정ip 작업 ex) 난지금 윈도우- 94, 리눅스-93(lx0) 와꾸리눅스-97(lx)  번을쓰고있고 
 
- 
+
     1) 새로만든 와꾸(lx) 접속
        		- vi /etc/sysconfig/network-scripts/ifcfg-eth0 에서 
 				↘
@@ -393,29 +393,163 @@ $ ps -ef | grep tomcat --확인
 
     
  *설치끝 이제 lx0 에 설치된 mysite 와 jenkins 를 연동시켜보자
+  *tomcat_apache_연동.txt 파일의 설정 잘봐라
 
-    자... 
+  16) vi /usr/local/douzone/apache/conf/httpd.conf  - 여기들어가서 기본설정하는곳이다..? 
+   
+  17) mod-jk 빌드
+	↘
+   	http://tomcat.apache.org/download-connectors.cgi -들어가서 
+		↓
+  	http://mirror.apache-kr.org/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.46-src.tar.gz
+		↓
+	압축풀기 : tar xvfz tomcat-connectors-1.2.46-src.tar.gz
 
-~~~~~~~~~~~~~~~~~~~~ 
 
-  16) 담주할거임 **tomcat_apache_연동.txt 파일의 설정 잘봐라**
+  18)	/root/tomcat-connectors-1.2.46-src/native -- 여기들어가서
+			↓
+ 	./configure --with-apxs=/usr/local/douzone/apache/bin/apxs -- 컴파일 
+			↓
+			make 
+			↓
+			make install
 
-        8080 - ??  
-        8443 - SSL [ https 기때문에 아파치연동함 ]
+   19) httpd.conf 설정 
+		↘
+		vi /usr/local/douzone/apache/conf/httpd.conf
+				↓
+			1) LoadModule jk_module modules/mod_jk.so  --모듈들의 맨밑에 넣어주고 
+				 ↓
+			2) 이건그냥 맨끝에 넣어줘라	- shift+g	
+				# mod_jk
+				<IfModule mod_jk.c>
+   				   JkWorkersFile conf/workers_jk.properties
+				   JkShmFile run/mod_jk.shm
+  				   JkLogFile logs/mod_jk.log
+
+ 				   JkLogLevel info
+  				   JkLogStampFormat "[%a %b %d %H:%M:%S %Y] "
+
+				   JkMountFile conf/uriworkermap.properties
+  				 </IfModule>
+
+
+    20)  19번의 2)의 설정을보고 폴더생성 ---- mod_JK 의 공유폴더(run)  
+		↓	
+	 /usr/local/douzone/apache -여기서
+		↓
+	       mkdir run
+
+
+    21) 19번의 2)의 설정을보고 파일 생성 
+		↓
+	 /usr/local/douzone/apache/conf  -- 여기밑에 
+		↓
+        - vi workers_jk.properties  	      -- 이 파일생성 
+			↘
+   			worker.list=worker1, worker2
+
+ 			 # server1
+  			 worker.worker1.port=8009
+  			 worker.worker1.host=218.39.221.93  //어플아이피 톰캣아이피
+ 			 worker.worker1.type=ajp13
+ 			 worker.worker1.lbfactor=1
+
+  			 # server 2
+  			 worker.worker2.port=8009
+ 			 worker.worker2.host=218.39.221.93
+   			 worker.worker2.type=ajp13
+   			 worker.worker2.lbfactor=2   
+
+       -  vi uriworkermap.properties  -- 이 파일생성
+			↘
+		## Mpping the URI /helloweb under worker1
+		/helloweb/*=worker1
+
+		## Mpping the URI /mysite3 under worker1
+		/mysite3/*=worker2
+
+		# assets 아래의 static 자원처리는 apache가 처리
+		# !/helloweb/assets/*.png=worker1
+		# !/service2/assets/*.jpg=worker2
+ 
+
+     22)  lx0 들어와서 (어플있는거)
+		↓
+ 	    /usr/local/douzone/douzone/conf/server.xml 
+		↓
+	     <!-- Define an AJP 1.3 Connector on port 8009 -->
+	    <Connector port="8009" protocol="AJP/1.3" URIEncoding="UTF-8" redirectPort="8443" />
+						  인코딩해주고 
+  
+               8080날려버려//?					
+					
+	   그리고 
+	   
+	    vi /etc/sysconfig/iptables  에서 8009 방화벽열여줘라 - 재시작하셈.. 
+
+
+
+     23) lx1
+ 	↘
+	 아파치 데몬설정 or /usr/local/douzone/apache/bin/apachectl start 
+				
+	1) vi /etc/init.d/apache 데몬스크립트파일만들자!      
+		        -  데몬스크립트 : https://gist.github.com/vittee/7262943 -여기꺼 복사해서쓰셈 스크립트 
+
+	2) chmod 755 apache  --권한주기
+
+	3) chkconfig --level 345 apache on  -- 데몬올리면서 레벨주기 
+    
+    	4) 리스타트하면됨            
+	
+		
+	
+
+
+
+
+------------
+
+        8080 - ????
+        8443 - SSL [ https 기때문에 아파치연동함??? ]
         8009 - connector?
 					
-								91번 : localhost??
+								91번 : localhost??		
+(80포트)-----아파치(httpd)-----------
+	[여러모듈들이있따]					----------톰캣(91번)----------
+ 	[httpd]		|				|			|
+ 	[mod-JK]		|    워커1			|			|
+   -----------|---------------------워커2----->AJP1.3          	   X---8080  [	
+  |			|      ....      |	  			   douzone --------/webapp
+  |			|         	   |→→→→→→→   --------8009 [         		    |-mysite..등등
+  |	---------------------	   |
+ ↓	          			   |		-------9090  [
+/-				   |			                jenkins----------/webapp	 
+ |-정적파일들             	 	   | 		-------9009  [ 			    |-jenkins
+ |-정적파일들			   |		              ----------------------------------
+ 				   |
+			 	   |-→→→→→→→  ------8009--|--톰캣(92번)---|
+				      			~~~~~							
+              아파치2..	    
+              아파치3... *이것도분산가능 
+ 		      	
+
+		  	      (*이용자가많으면 이렇게 분산가능)
+					              - 분산이 많아지면 일일이 올리기힘드니 젠킨스서버를따로 둬서 한다.
+
+
 		
-(80포트)-----아파치(10)-----------				----------톰캣(91번)----------
- 	httpd		|				|			|
- 	mod-JK		|				|			|
-   	   |-------------------------->			   X---8080  [	
-			|		  			   douzone 
-			         			--------8009 [         
-			 
-	          					-------9090  [
-							                jenkins	 
-          	          					-------9009  [ 
+AJP(Apache Jserv Protocol) 
+
+  웹 서버 뒤에있는 WAS로 들어오는 요청을 웹 서버로 위임할 수 있는 바이너리 프로토콜이다.
+  Apache HTTP Server(이하 Apache)는 80포트로 들어오는 요청 중, 서블릿을 필요로 하는 요청은
+  Apache Tomcat(이하 Tomcat)에 접속하여 처리한다. (동적은? 근데 톰캣도 디폴트서블릿으로 정적처리가능)
+  AJP를 사용하기 위해서는 mod_jk라는 모듈을 설치해야 한다.
+  mod_jk는 Tomcat의 일부로 배포되지만, Apache에도 설치를 해야 한다.
+
+
+
 
 --------------------------------------------------------------------------------------------------------------
 
@@ -430,6 +564,13 @@ $ ps -ef | grep tomcat --확인
   
     - netstat -ntlp  : 리슨상태보기 
 
+ 팁2 - 젠킨스에서 빌드할때 mvn으로 올리기 때문에
+         vi /etc/init.d/tomcat-jenkins
+		↓ 
+        export PATH=$PATH:$JAVA_HOME/bin:/usr/local/douzone/maven3.3.9/bin
+       					이거 환경변수잡아줘야됨
+						
 
+---
 
 
