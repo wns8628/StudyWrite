@@ -1,0 +1,27 @@
+
+
+/archive	해당 채널 저장 하기
+/away	슬랙 비활성화 하기
+/collapse	현재 채널에 보여지는 모든 이미지와 GIF를 숨기기
+/open	새로운 채널을 만들거나 기존 채널을 열기
+/leave	현재 채널 나가기
+/invite @someone 	현재 채널에 새로운 멤버 추가하기
+/join [#channel]	오픈된 채널에 들어가기
+/mute	해당 채널 음소거 하기
+/remind [@someone or #channel] to [What] [When]	리마인드 하기
+/star	해당 채널 즐겨찾기 표시
+/who	현재 채널에 누가 있는지 보기
+/rename	해당 채널 이름 다시 정하기
+/poll “질문” “선택지1” “선택지2” “선택지3”	설문조사 만들기
+/shortscut	슬랙 단축키 보기
+
+
+
+Crtl + K or T	다른 채널로 변경하기
+Crtl +  Shfit + K	DM 채널로 변경하기
+Alt + ←	이전 채널로 가기
+Alt + →	다음 채널로 가기
+Crtl + Shfit + A	All Unreads로 가기
+Crtl + Shfit + T	All Threads로 가기
+Crtl + F	검색하기
+Crtl + U	파일 업로드하기
