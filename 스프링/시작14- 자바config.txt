@@ -71,17 +71,162 @@ com.douzone.springcontainer.videosystem -> @Bean
 | maintest
 |------|  		   ..
   
+----
+xml에 
+   xmlns:c="http://www.springframework.org/schema/c"  
+   xmlns:p="http://www.springframework.org/schema/p"  
+   xmlns:util="http://www.springframework.org/schema/util"  
+ 
+이건거의 디폴트로 넣으셈 
 
 -------------------------------------------------------------------------------------------
 
- 이제 직접 Bean설정방법
 
- 생성자로 주입 
+    1. 자바 config
+	-자동설정: 컴포넌트 스캔 , 오토와이어
+	- 명시적설정 : @Bean @Inject 	
 
- 생성자말고 세터로 만드는거??
+	jc1 <- jc2 <- jc3.... 
+ 	         -파일업로드설정(jc2) , 보안설정(jc3) ..등등
+	jc1에서 임포트해서씀 
+	
+    2. XML config 
+	-자동설정 : 컴포넌트스캔, 오토와이어
+  	-명시적설정:<Bean..
+
+------------------------------------------------------------------------------------------
+ 마이사이트3를 바꿔보자 config 트리 
+
+=================================================================
+
+WEB-INF
+   |------ classes <- [src/main/java, src/main/resources]
+           |------ com
+    	          |------ douzone
+         			|------ /config
+              		          |------ /app
+              		          |             |------ DBConfig.class
+              		          |             |------ MyBatisConfig.class
+            		          |             |------ /mybatis
+          			          |             |             |------ configuration.xml
+             		          |             |             |------ /mappers
+          			          |             |                           |------ user.xml
+  
+    			          |	            |----- /properties   
+			          |	 	|	 |------ jdbc.properties
+             		          |             |
+              		          |		
+           			          |------ /web
+        			          |             |------ MVCConfig.class
+          			          |             |------ SecurityConfig.class
+            		          |             |------ /messages   
+          			          |             |	 |------ messages_ko.properties   		
+			          |             |------ /properties  
+                                              |             |              |------ multipart.properties
+							
+
+리소스에만드셈 : com.douzone.config.app.properties : 디비커넥션같은거뺴자?
+	         com/douzone/config/web/messages/messages_ko.properties
+	         com/douzone/config/web/properties/multipart.properties
+=================================================================
 
 
+1.Maven Project 생성
+2. POM 설정
+3. web.xml 설정 
+
+  Controller <- Service <- Repository <- sqlSession  이렇게 주입됨 (다바꾸는건 왠만하면 하지마라.. )
+
+4. AppConfig
+    |---- DBConfig : DataSource 설정			  -- 나중에 재사용가능
+    |		jdbc.properties
+    |---- MyBatisConfig : sqlSession, SqlSessionFactory설정  -- 나중에 재사용가능
+          
+
+5. WebConfig 설정 
+    |--MVCConfig : ViewResolver , DefaultServletHandler, Message Converter
+    |--SecurityConfig : Interceptor,ArgumentResolver
+    |--MessageConfig: MessageSource
+		    message_ko.properties
+    |--FileUploadConfig : MultipartResolver, Resource
+			
+
+6. GlobalExceptionHandler
 
 
+7. slf4j, Logback 
+
+
+-------------------
+
+ web.xml    1. listener
+               2.Filter
+               3.Servlet
+ 	   4.디스패처서블릿 
+               5. welcome  
+	   6.  ..
+	 
+	1.디스패처서블릿 url매핑
+ 리스너?  2. App config.class 지정
+            3. web config.class  지정 
+
+
+ 톰캣 	/webinfo
+	    |- ....class
+
+
+1)톰캣이 '서블릿컨테이너이니셜라이저' 이걸찾는다(이걸구현한놈을찾겠찌) 클래스패쓰에서
+2)'서블릿컨테이너이니셜라이저' 이게 웹애플리케이션이니셜라이저를구현한놈들을찾겠지 (우리가만들어야지)
+
+
+	         <<인터페이스>>
+	서블릿컨테이너이니셜라이저      
+		△	
+		 |
+	스프링서블릿컨테이너이니셜라이저 : 이게 webinfo밑에 class를 스캔함  (얘가 디스패처서블릿 이런거다만듥ㅅ지)
+				↘
+				     <<인터페이스>>
+				웹애플리케이션이니셜라이저 	 : 컨테이너 만들때 스프링서블릿컨테이너이니셜라이저가 이걸읽는다.
+					△	
+					 |
+					<추상클래스>
+				앱스트랙트어노테이션콘피그디스패처서블릿이니셜라이저
+							△
+							 |
+						       이걸만들면됨 
+		  
+
+com.douzone.hellospring.initializer
+com.douzone.hellospring.initializer
+com.douzone.mysite.initializer
  
+--------------------
+
+
+프로젝트규모가커지면 
+
+ Spring-Study
+   |---- Spring-Study-container
+   |---- Spring-Study-springex
+   |---- Spring-Study-springex2
+   |---- Spring-Study-mysite3
+   |---- Spring-Study-mysite4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
