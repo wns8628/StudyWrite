@@ -1,0 +1,79 @@
+
+Spring boot  - 스프링을 좀더쉽게 
+	     - web.xml, spring-servlet, application 다필요없음?
+
+0. maven or gradle    - 메이븐했고
+1. multi-project        - 멀티프로젝트  
+2. starter	               - 핵심
+3. autoConfiguration  - 자동설정(properties:jdbc가 자동으로 설정되면 거기있는 url설정이나 값설정은 properties로? 쨋든알아서함)
+4. CLI 
+5. actuator	   - 관리페이지 관련기능, 안씀.. 
+
+
+git올릴때 .settings
+	 .project
+	 .classpath
+	 /target 	       ↘
+ 			이그노아 시켜주세요 
+
+------------------------------------
+
+1. MultiProject (이렇게 멀티프로젝트 - 모와야편하다. )
+
+*멀티에서는 Packaging = war 말고 pom으로해야함
+
+
+javaweb-study
+ |---...
+
+ spring-study		      -pom.. //부모
+   |---- spring-study-hellospring1(xml) -war..  //자식-pom.xml에 parent로 부모지정되면 물려받음 
+   |---- spring-study-hellospring2(java config)
+   |---- spring-study-hellospring3(initalizer , javaconfig)
+   |---- spring-study-emaillist3(xml)
+   |---- spring-study-emaillist4()
+   |---- spring-study-guestbook3
+   |---- spring-study-mysite3
+   |---- spring-study-mysite4
+   |---- spring-study-container    - jar.. 
+
+*import as project - 부모에서 모듈뺴내는거
+
+ spring-boot -src는 지워 필요없다.
+  |---spring-boot-hellospring
+  |---spring-boot-emaillist
+  |---spring-boot-mysite
+  |---spring-boot-emaillist
+
+	1)maven프로젝트만들고 -기본설정 (pom선택,src폴더날리기등)
+	2)pom.xml에 parent , build(plugins)추가 
+       		
+	  기본세팅끝	     
+		
+	spring-boot-hellospring 모듈추가 - jar,war 둘다해도됨	
+					      jar는 '톰캣이내장'됨 바로실행가능 
+					       *jar
+	com.douozne.hellospring.bootstrap				
+				↘
+				 톰캣실행하는 클래스하나만들어야됨
+
+
+스타터달고 프로퍼티스설정 ?
+
+src/main/resources
+	-application.properties
+spring boot common properties -뷰리졸브등등 세부설정 , 빈설정은 부트가 다해줌
+
+
+==========================
+
+src/main/java
+src/main/resources
+src/main/webapp  --jar파일로 묶인다. 
+	assets	
+	WEB-INF 
+
+*war는  src/main/resources , src/main/java 파일이 → WEB-INF 밑에 classes밑으로 들어가게하면됨
+
+------------------------------------------
+  
