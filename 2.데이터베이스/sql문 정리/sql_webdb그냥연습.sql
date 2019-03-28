@@ -248,6 +248,9 @@ insert into guestbook
 	  from guestbook 
   order by reg_date desc limit 0, 5;  -- (page-1)*5
   
+
+show tables;
+select count(*) from employee;
   
 select last_insert_id();  
 
