@@ -1,0 +1,41 @@
+WebStorm 써봐라 ide는 
+
+------------------
+
+이런형식이다.
+
+npm       Express
+      ↘       ↓
+           connect
+              ↑
+ lib------http.js
+  |
+  -------Node.js (걍 자바스크립트 인터프리터임)
+
+
+
+-------------------------
+
+ 일단 Node.js 기본동작보고 = calc
+
+ 그위에 라이브러리 http.js 써서 서버만들어보자
+    ↓
+ 
+let httpd = http.createServer(function (request,response) {
+    console.log(request.url)
+    response.writeHead(200,{
+        "Content-Type":"text/html"
+    });
+    response.end("<h1>hello World</h1>");
+});
+
+ 존나복잡해짐 ㅅㅂ 
+
+ 그래서 
+
+  ↓
+
+ connect 쓴다
+ 
+   ↓
+ express 쓴다.

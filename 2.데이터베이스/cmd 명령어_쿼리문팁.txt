@@ -8,7 +8,6 @@ cmd 접속
 1) mysql -u kickscar -D testdb -p
                 (유저)    (디비이름)
 
-
 select version()     : 버전확인 
 select current_date; : 오늘날짜
 

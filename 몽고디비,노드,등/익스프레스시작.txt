@@ -1,0 +1,61 @@
+1.node-practice
+2.node-connect-ex
+3.node-express-ex02
+4.node-express-emaillist
+5.node-express-guestbook
+6.node-express-mysite -> mysite2,mysite3,mysite4,mysite5, spring-boot-mysite
+
+1.프로젝트 생성(ECMAscript 버전확인 , Node,js라이브러리 Enabled)
+2.npm install express
+3.npm install ejs
+4.npm install mongoose
+5.npm install mongoose-auto-increment
+6.npm install moment
+
+
+3.app.js 작성
+
+4.express 프로젝트 구조 숙지
+   
+
+ |--app.js
+ |--package.json
+ |--public
+      |-- images
+      |-- css
+      |-- js  (브라우저 자바스크립트임)
+
+ |-- routers
+        |-main.js
+        |-guestbook.js
+        |- user.js
+        |-board.js
+ |--views
+        |--main
+        |    |-- index.ejs
+        | --user
+             |--login.ejs
+             |--join.ejs
+|--models
+         |--User.js
+         |--GuestMessage.js
+
+
+5.라우터 작업
+	/ 
+	/emailist/form
+	/emaillist/add
+	/emaillist/list
+               
+	/form
+	/add
+	/...
+
+
+6. view 작업 (EJS 템플릿엔진)
+
+
+
+
+
+	

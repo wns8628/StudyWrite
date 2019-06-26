@@ -1,0 +1,18 @@
+ - setState()
+
+ - Loading State
+
+ - Smart Component VS Dumb Component 
+		       (functional Component )
+
+
+-------------------------
+
+ function(){} vs () =>{} 
+
+ *서로가리키는 this가 다르다. ()=>{} 이건 함수형이라서 객체개념이? 응?	
+  fucntion(){} 이건 부른자기자신객체겠지 this가
+
+---
+ state를 다르게세팅할떄 this.setState({}) 이렇게써야되고 바뀌면 render가 다시 호출됨.
+                 

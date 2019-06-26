@@ -1,0 +1,82 @@
+리엑트로 컴포넌트만들고
+
+스프링에서 
+bundle.js 를 웹팩으로 컴파일해서 끌어다쓰게하는거
+
+
+
+
+
+-- 현재 
+
+ mysite
+---------
+spring mvc  -------------> v : (JSP , Template) ↔ (JSX컴포넌트(react) : bundle.js)  
+								↖
+spring jdbc(mybatis)					     컴포넌트들
+spring Security						  webpack으로 
+---------------------
+Spring Boot
+
+
+
+
+                                  *지금 vscode -에서 react프로젝트를 테스팅용으로씀
+		           이클립스jsp안에 넣는게목표다
+ 		           node서버처럼 테스팅용을 컴파일해서 실행해주는것처럼 
+ 		           maven 플러그인을 설치해서 그런걸처리해줘야함
+
+
+---------------------------
+
+
+ mysite를 리엑트로? 
+
+
+spriong-boot-mysite
+
+ src 
+   main
+         /java
+         /react -------------------------------------------------------- App.css      
+         /resource					           App.js
+         /webapp  ------ 이게 .war파일로 		           movie.js       index.js [ES6]:이게 컴파일되서 jsp파일에 넘어오도록
+ 	  WEB-INF
+	      view 
+	          .jsp
+																			    
+              JS,CSS
+
+	  class..---
+
+   node-modules-.. 이렇게설치하면되겠지
+
+
+
+---------------------------------------------
+ 8080은 webapp을 바라보고 -war파일 프로젝트
+
+ webpack-dev-server 은 - react프로젝트를 바라보고있다. 그래서 컴파일해서 가져다준다. webpack이있으니
+      (프록시서버)
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

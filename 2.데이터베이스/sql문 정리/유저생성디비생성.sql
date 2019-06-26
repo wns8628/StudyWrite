@@ -21,3 +21,10 @@ create user 'jblog'@'localhost' identified by 'jblog';
 grant all privileges on jblog.* to 'jblog'@'localhost'; 
 
 grant all privileges on *.* to 'webdb'@'%' identified by 'webdb';
+
+
+-- ----
+
+create user 'quicksilver'@'%' identified by 'root12'; 
+grant all privileges on quicksilver.* to 'quicksilver'@'%'; 
+grant all privileges on *.* to 'quicksilver'@'%' identified by 'root12';

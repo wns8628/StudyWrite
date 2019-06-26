@@ -1,0 +1,38 @@
+-- 모회사(그룹)
+select * from t_co_group;
+select * from t_co_groupping;
+select * from t_co_groupping_comp;
+select * from t_co_groupping_comp_history; - 이력을저장 
+				          그룹과 회사의 관계를설정하는페이지 저장을계속바꾼다고했을때 
+				          히스토리가 계속남는다.
+
+-- 회사
+select * from t_co_comp;			 - 회사기본정보 
+select * from t_co_comp_duty_position;	 - 직급직책
+select * from t_co_comp_duty_position_multi;	 - 다국어,  
+select * from t_co_comp_duty_position_multi_history; -이력저장
+select * from t_co_comp_multi;		 - 다국어 그래서 할때 조인을걸어야됨		
+select * from t_co_comp_multi_history;	 - 이력 
+
+-- 사업장
+select * from t_co_biz; 			- 사업장
+select * from t_co_biz_history;		
+select * from t_co_biz_multi;
+select * from t_co_biz_multi_history;
+
+-- 부서
+select * from t_co_dept;			- 부서
+select * from t_co_dept_histor; 		- 부서등록관리 히스토리
+select * from t_co_dept_multi;
+
+-- 직원
+select * from t_co_emp;
+select * from t_co_emp_comp; 	    	- 이사원이 어떤회사에 들어가있는지? 겸직이있을수있다.
+select * from t_co_emp_comp_history;
+select * from t_co_emp_dept; 
+select * from t_co_emp_dept_history;
+select * from t_co_emp_dept_multi;
+select * from t_co_emp_dept_multi_history;
+select * from t_co_emp_history;
+select * from t_co_emp_multi;
+select * from t_co_emp_multi_history;
